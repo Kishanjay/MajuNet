@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Navbar from './Navbar.js';
 function App() {
   return (
     <div className="App">
@@ -18,6 +18,9 @@ function App() {
         >
           Learn React
         </a>
+
+        <Navbar name="kishan"></Navbar>
+        <Navbar name="alex"></Navbar>
       </header>
     </div>
   );
