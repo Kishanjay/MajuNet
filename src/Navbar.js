@@ -12,11 +12,12 @@ class Navbar extends React.Component {
     render() {
 
         return (
-            <ul>
-                <li>
-                    Hello {this.props.name}
-                </li>
-            </ul>
+            <div>
+                <a href="#">Home</a>
+                <a href="#">Information</a>
+                <a href="#">Marketplace</a>
+                <a href="#">Contact</a>
+            </div>
         )
     }
 }
