@@ -15,4 +15,4 @@ constructor(props){
     }
 }
  
-export default Button;
+export default mButton;
