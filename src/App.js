@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './Navbar.js';
-import Button from './Button';
+import mButton from './mButton';
 import Footnote from './Footnote';
 import 'bulma/css/bulma.css'
 
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
         
         <Navbar name="kishan"></Navbar>
-        <Button name="hoho"></Button>
+        <mButton name="hoho"></mButton>
         <Footnote></Footnote>
     </div>
   );

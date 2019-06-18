@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class Button extends Component {
+class mButton extends Component {
     
 constructor(props){
     super(props);
