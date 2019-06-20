@@ -30,7 +30,8 @@ class MTable extends Component {
                 <th>8:00 - 9:00</th>
                 <th>9:00 - 10:00</th>
                 <th>10:00 - 11:00</th>
-                <th> Rehat </th>
+                <th>11:00 - 12:00 </th>
+                <th>12:00 - 1:00 </th>
                 <th>1:00 - 2:00</th>
                 <th>2:00 - 3:00</th>
                 <th>3:00 - 4:00</th>
@@ -45,7 +46,9 @@ class MTable extends Component {
             </table>
 
             <div>
-                <button className="button" onClick={this.TimetableService.addNewEntry}>Add New Entry</button>
+                <button 
+                    className="button is-success is-warning" 
+                    onClick={this.TimetableService.addNewEntry}>Add New Entry</button>
             </div>
 
             </div>
