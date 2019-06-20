@@ -45,9 +45,6 @@ class MTable extends Component {
             </table>
 
             <div>
-                <Link to="/entry">
-                    <button>Financial</button>
-                </Link>
                 <button className="button" onClick={this.TimetableService.addNewEntry}>Add New Entry</button>
             </div>
 
