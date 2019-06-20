@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import MButton from './MButton.js'
 import TimetableService from './TimetableService';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-const entry = () => (
-    <div>
-      Add New Entry
-    </div>
-  )
 
 class MTable extends Component {
     
@@ -46,9 +39,10 @@ class MTable extends Component {
             </table>
 
             <div>
-                <button 
-                    className="button is-success is-warning" 
-                    onClick={this.TimetableService.addNewEntry}>Add New Entry</button>
+                <MButton 
+                    buttonClass="button is-success is-warning"
+                    buttonText="Add New Entry">
+                </MButton>
             </div>
 
             </div>
