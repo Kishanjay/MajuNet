@@ -75,6 +75,7 @@ class App extends Component {
             <Route exact path="/code" component={Code} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/info" component={info} />
+            <Route exact path="/timetable" component={MTable} />
           </div>
         </div>
       </Router>
