@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import MButton from './MButton.js'
+import TimetableService from './TimetableService';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-
-
-function test(){
-    console.log("test");
-}
-
+const entry = () => (
+    <div>
+      Add New Entry
+    </div>
+  )
 
 class MTable extends Component {
     
@@ -16,6 +17,7 @@ class MTable extends Component {
 
     constructor(props) {
         super(props);
+        this.TimetableService = new TimetableService();
     }
 
     render() { 
@@ -43,7 +45,10 @@ class MTable extends Component {
             </table>
 
             <div>
-                <button className="button" onClick={this.test2}>Add New Entry</button>
+                <Link to="/entry">
+                    <button>Financial</button>
+                </Link>
+                <button className="button" onClick={this.TimetableService.addNewEntry}>Add New Entry</button>
             </div>
 
             </div>
