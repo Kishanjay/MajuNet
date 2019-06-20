@@ -23,13 +23,13 @@ const FinancialOverview = () => (
 class MainMenu extends Component {
   render() {
     return (
-      <div>
-        <Link to="/">
-          <button>Timetable</button>
+      <div class="notification">
+        <Link to="/Timetable">
+          <button class="button is-info is-hovered">Timetable</button>
         </Link>
 
         <Link to="/FinancialOverview">
-          <button>Financial Overview</button>
+          <button class="button is-success is-hovered">Financial Overview</button>
         </Link>
       </div>
     );
@@ -41,11 +41,15 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-            <MNavbar></MNavbar>
             <MainMenu/>
           <div>
             <Route exact path="/" component={Home} />
+            <Route exact path="/Timetable" component={Home} />
             <Route exact path="/FinancialOverview" component={FinancialOverview} />
+          </div>
+
+          <div>
+            <MFootnote></MFootnote>
           </div>
         </div>
       </Router>
