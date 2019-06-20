@@ -1,18 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './Navbar.js';
-import mButton from './mButton';
-import Footnote from './Footnote';
-import 'bulma/css/bulma.css'
+import MFootnote from './MFootnote.js';
+import MNavbar from './MNavbar.js';
+import MContainer from './MContainer.js';
+import MTable from './MTable.js';
+import 'bulma/css/bulma.css';
 
 function App() {
   return (
     <div className="App">
-        
-        <Navbar name="kishan"></Navbar>
-        <mButton name="hoho"></mButton>
-        <Footnote></Footnote>
+        {/*<MNavbar></MNavbar>*/}
+          <MTable></MTable>
+  {/*<MFootnote></MFootnote>*/}
     </div>
   );
 }
