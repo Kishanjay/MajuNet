@@ -3,15 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import MNavbar from './MNavbar.js';
 import MButton from './MButton';
-import Footnote from './Footnote';
-import 'bulma/css/bulma.css'
+import MFootnote from './MFootnote.js';
+import MContainer from './MContainer.js';
+import MTable from './MTable.js';
+import 'bulma/css/bulma.css';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Home = () => (
-  <div>
-    Home
-  </div>
+  <MTable></MTable>
 )
 
 const About = () => (
@@ -80,6 +80,7 @@ class App extends Component {
       </Router>
     );
   }
+
 }
 
 export default App;

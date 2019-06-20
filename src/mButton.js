@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class mButton extends Component {
+class MButton extends Component {
     
 constructor(props){
     super(props);
@@ -10,9 +10,9 @@ constructor(props){
 
     render() { 
         return ( 
-            <a href="#">Test{this.props.name}</a>
+            <a class="button" value="rwrwr"></a>
          );
     }
 }
  
-export default mButton;
+export default MButton;
