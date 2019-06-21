@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import MNavbar from './MNavbar.js';
-import MButton from './MButton';
 import MFootnote from './MFootnote.js';
-import MContainer from './MContainer.js';
 import MTable from './MTable.js';
 import MLogin from './MLogin.js';
 import 'bulma/css/bulma.css';
@@ -28,14 +24,14 @@ const FinancialOverview = () => (
 class MainMenu extends Component {
   render() {
     return (
-      <div class="notification">
+      <div className="notification">
         <div>
-        <nav class="navbar is-transparent">
-        <div class="navbar-brand">
-        <a class="navbar-item">
+        <nav className="navbar is-transparent">
+        <div className="navbar-brand">
+        <a className="navbar-item">
           <img src={require('./logo.png')}/>
         </a>
-          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
             <span></span>
             <span></span>
             <span></span>
@@ -43,16 +39,16 @@ class MainMenu extends Component {
         </div>
 
         <div id="navbarExampleTransparentExample" class="navbar-menu">
-          <div class="navbar-start">
+          <div className="navbar-start">
 
             <Link to="/Timetable">
-              <a class="navbar-item">
+              <a className="navbar-item">
                 Timetable
               </a>
             </Link>
 
             <Link to="/FinancialOverview">
-              <a class="navbar-item">
+              <a className="navbar-item">
                 Financial Overview
               </a>
             </Link>
