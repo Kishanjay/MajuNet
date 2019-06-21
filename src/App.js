@@ -7,6 +7,7 @@ import MFootnote from './MFootnote.js';
 import MContainer from './MContainer.js';
 import MTable from './MTable.js';
 import 'bulma/css/bulma.css';
+import MFinancial from './MFinancial.js';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -76,6 +77,7 @@ class App extends Component {
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/info" component={info} />
             <Route exact path="/timetable" component={MTable} />
+            <Route exact path="/financial" component={MFinancial} />
           </div>
         </div>
       </Router>
