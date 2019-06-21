@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import MButton from './MButton.js'
-
-
 
 class MFinancial extends Component {
     constructor(props) {

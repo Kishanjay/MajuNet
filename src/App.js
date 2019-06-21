@@ -21,9 +21,7 @@ const Login = () =>(
 )
 
 const FinancialOverview = () => (
-  <div>
-    FinancialOverview
-  </div>
+  <MFinancial></MFinancial>
 )
 
 class MainMenu extends Component {
@@ -79,10 +77,9 @@ class App extends Component {
             <MainMenu/>
           <div>
             <Route exact path="/" component={Home} />
-            <Route exact path="/financial" component={MFinancial} />
+            <Route exact path="/FinancialOverview" component={MFinancial} />
             <Route exact path="/Timetable" component={Home} />
             <Route exact path="/Login" component={Login} />
-            <Route exact path="/FinancialOverview" component={FinancialOverview} />
           </div>
 
           <div>
