@@ -18,3 +18,4 @@ use Illuminate\Http\Request;
 // });
 
 Route::resource('employee', 'API\EmployeeController');
+Route::resource('timetable', 'API\TimetableController');
