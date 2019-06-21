@@ -4,6 +4,7 @@ import MFootnote from './MFootnote.js';
 import MTable from './MTable.js';
 import MLogin from './MLogin.js';
 import 'bulma/css/bulma.css';
+import MFinancial from './MFinancial.js';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -16,9 +17,7 @@ const Login = () =>(
 )
 
 const FinancialOverview = () => (
-  <div>
-    FinancialOverview
-  </div>
+  <MFinancial></MFinancial>
 )
 
 class MainMenu extends Component {
@@ -74,9 +73,9 @@ class App extends Component {
             <MainMenu/>
           <div>
             <Route exact path="/" component={Home} />
+            <Route exact path="/FinancialOverview" component={MFinancial} />
             <Route exact path="/Timetable" component={Home} />
             <Route exact path="/Login" component={Login} />
-            <Route exact path="/FinancialOverview" component={FinancialOverview} />
           </div>
 
           <div>
