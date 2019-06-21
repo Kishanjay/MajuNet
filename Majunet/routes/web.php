@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get("/majunet", function() {
     return view('majunet');
 });
+
