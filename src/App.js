@@ -6,6 +6,7 @@ import MButton from './MButton';
 import MFootnote from './MFootnote.js';
 import MContainer from './MContainer.js';
 import MTable from './MTable.js';
+import MLogin from './MLogin.js';
 import 'bulma/css/bulma.css';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -14,50 +15,57 @@ const Home = () => (
   <MTable></MTable>
 )
 
-const About = () => (
-  <div>
-    About
-  </div>
+const Login = () =>(
+  <MLogin></MLogin>
 )
 
-const Code = () => (
+const FinancialOverview = () => (
   <div>
-    Code
-  </div>
-)
-
-const Contact = () => (
-  <div>
-    Contact
-  </div>
-)
-
-const info = () => (
-  <div>
-    info
+    FinancialOverview
   </div>
 )
 
 class MainMenu extends Component {
   render() {
     return (
-      <div>
-        <Link to="/">
-          <button>home</button>
-        </Link>
-        <Link to="/about">
-          <button>About</button>
-        </Link>
-        <Link to="/code">
-          <button>code</button>
-        </Link>
-        <Link to="/code">
-          <button>contact</button>
-        </Link>
-        <Link to="/info">
-          <button>info</button>
-        </Link>
+      <div class="notification">
+        <div>
+        <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+        <a class="navbar-item">
+          <img src={require('./logo.png')}/>
+        </a>
+          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start">
+
+            <Link to="/Timetable">
+              <a class="navbar-item">
+                Timetable
+              </a>
+            </Link>
+
+            <Link to="/FinancialOverview">
+              <a class="navbar-item">
+                Financial Overview
+              </a>
+            </Link>
+        </div>
+        </div>
+
+      </nav>
       </div>
+
+
+      </div>
+
+      
     );
   }
 }
@@ -67,14 +75,16 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-            <MNavbar></MNavbar>
             <MainMenu/>
           <div>
             <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/code" component={Code} />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/info" component={info} />
+            <Route exact path="/Timetable" component={Home} />
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/FinancialOverview" component={FinancialOverview} />
+          </div>
+
+          <div>
+            <MFootnote></MFootnote>
           </div>
         </div>
       </Router>

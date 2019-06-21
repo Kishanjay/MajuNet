@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import MButton from './MButton.js'
-
-
-
-function test(){
-    console.log("test");
-}
-
+import TimetableService from './TimetableService';
 
 class MTable extends Component {
     
@@ -16,6 +10,7 @@ class MTable extends Component {
 
     constructor(props) {
         super(props);
+        this.TimetableService = new TimetableService();
     }
 
     render() { 
@@ -28,7 +23,8 @@ class MTable extends Component {
                 <th>8:00 - 9:00</th>
                 <th>9:00 - 10:00</th>
                 <th>10:00 - 11:00</th>
-                <th> Rehat </th>
+                <th>11:00 - 12:00 </th>
+                <th>12:00 - 1:00 </th>
                 <th>1:00 - 2:00</th>
                 <th>2:00 - 3:00</th>
                 <th>3:00 - 4:00</th>
@@ -43,10 +39,14 @@ class MTable extends Component {
             </table>
 
             <div>
-                <button className="button" onClick={this.test2}>Add New Entry</button>
+                <MButton 
+                    buttonClass="button is-success is-warning"
+                    buttonText="Add New Entry">
+                </MButton>
             </div>
 
             </div>
+            
 
             
          );

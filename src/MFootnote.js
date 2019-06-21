@@ -4,20 +4,11 @@ class MFootnote extends Component {
     render() { 
         return ( 
             <footer class="footer">
-            <div class="container">
-                <div class="bd-footer-links">
-                    <div class="columns">
-                        <div class="column is-3">
-                        <p class="bd-footer-link-title">
-                            <a>Home</a>
-                        </p>
-
-                        <p class="bd-footer-link">
-                            <a>About</a>
-                        </p>
-                    </div>
-                    </div>
-                </div>
+            <div class="content has-text-centered">
+                <p>
+                <strong>MajuNet</strong> by <a href="http://www.unimas.my/">UNIMAS</a> and <a href="https://www.vu.nl/en">VU</a>.
+                Please email the <a href="https://github.com/Kishanjay/MajuNet">collaborators</a> for paid bug fixes.
+                </p>
             </div>
             </footer>
          );
