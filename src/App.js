@@ -18,10 +18,6 @@ const Login = () =>(
   <MLogin></MLogin>
 )
 
-const FinancialOverview = () => (
-  <MFinancial></MFinancial>
-)
-
 class MainMenu extends Component {
   render() {
     return (
