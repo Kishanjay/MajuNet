@@ -3,6 +3,7 @@ import './App.css';
 import MFootnote from './MFootnote.js';
 import MTable from './MTable.js';
 import MLogin from './MLogin.js';
+import MEmployee from './MEmployee';
 import 'bulma/css/bulma.css';
 //import '~bulma/css/bulma.css';
 //import '~bulma-calendar';
@@ -16,6 +17,10 @@ const Home = () => (
 
 const Login = () =>(
   <MLogin></MLogin>
+)
+
+const Employee = () =>(
+  <MEmployee></MEmployee>
 )
 
 class MainMenu extends Component {
@@ -74,6 +79,7 @@ class App extends Component {
             <Route exact path="/FinancialOverview" component={MFinancial} />
             <Route exact path="/Timetable" component={Home} />
             <Route exact path="/Login" component={Login} />
+            <Route exact path="/Employee" component={Employee} />
           </div>
 
           <div>
