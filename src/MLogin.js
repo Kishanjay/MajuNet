@@ -7,23 +7,21 @@ class MLogin extends Component {
         return ( 
             <div>
 
-                <div class="field">
-                <label class="label">Password</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input is-danger" type="email" placeholder="Email input" value="hello@"/>
-                    <span class="icon is-small is-left">
-                    <i class="fas fa-envelope"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    </span>
-                </div>
-                <p class="help is-danger">This email is invalid</p>
+                <div className="field">
+                    <label className="label">Username</label>
+                    <div className="control has-icons-left has-icons-right">
+                        <input className="input" type="text" placeholder="Masukkan nama pengguna anda"/>
+                    </div>
+
+                    <label className="label">Password</label>
+                    <div className="control has-icons-left has-icons-right">
+                        <input className="input" type="password" placeholder="Masukkan kata laluan anda"/>
+                    </div>
                 </div>
 
-                <div class="field is-grouped">
-                <div class="control">
-                    <MButton buttonClass="button is-link" buttonText="Login"></MButton>
+                <div className="field is-grouped">
+                <div className="control">
+                    <MButton buttonClass="button is-link" buttonText="Log Masuk"></MButton>
                 </div>
                 </div>
             </div>

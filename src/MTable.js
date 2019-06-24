@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
 import MButton from './MButton.js'
-import TimetableService from './TimetableService';
+//import TimetableService from './TimetableService';
+import MModal from './MModal.js';
 
 class MTable extends Component {
-    
-    test2(){
-        alert("Button clicked!");
-    }
 
     constructor(props) {
         super(props);
-        this.TimetableService = new TimetableService();
+        this.state = { isOpen: false };
+    }
+
+    toggleModal = () => {
+        this.setState({
+          isOpen: !this.state.isOpen
+        });
+    }
+
+    saveEntry = () => {
+        // post to server!
+        this.setState({
+            isOpen: !this.state.isOpen
+          });
     }
 
     render() { 
-        return ( 
+        return (
             <div>
             <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
@@ -41,10 +51,16 @@ class MTable extends Component {
             <div>
                 <MButton 
                     buttonClass="button is-success is-warning"
-                    buttonText="Add New Entry">
+                    buttonText="Add New Entry"
+                    onClick={this.toggleModal}>
                 </MButton>
             </div>
 
+            <MModal 
+                show={this.state.isOpen}
+                onSave={this.saveEntry}
+                onClose={this.toggleModal}
+            ></MModal>
             </div>
             
 
