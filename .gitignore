@@ -22,3 +22,6 @@ Homestead.json
 old/
 public/maju.css
 public/maju.css.map
+build
+src/.sass-cache
+.sass-cache
