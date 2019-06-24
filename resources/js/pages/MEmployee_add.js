@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import MButton from '../components/MButton'
 
-class MEmployee extends Component {
+// const addEmployee = () =>function () {
+//     console.log("adding employee");
+//     // should add an employee through the API
 
-    componentDidMount() {
-        axios.get('/api/employee').then(response => {
-            console.log(response);
-            this.setState({
-              employees: response.data
-            })
-          })
-    }
+//     axios.post('/api/employee', {
+//         first_name: 'Kishan',
+//         last_name: 'Kishan',
+//         phone: '0229292',
+//         age: '18',
+//         address: 'contejeisfjes',
+//         city: 'Amsterdam'
+//     }).then(response => {
+//         console.log(response);
+//     });
+// }
 
-    addEmployee = function () {
+
+class MEmployee_add extends Component {
+    addEmployee (){
         console.log("adding employee");
         // should add an employee through the API
-
+    
         axios.post('/api/employee', {
             first_name: 'Kishan',
             last_name: 'Kishan',
@@ -30,22 +37,7 @@ class MEmployee extends Component {
 
     render() { 
         return ( 
-            <div>
-            <h1 className="title">Senarai Pekerja</h1>
-            <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                <thead>
-                    <tr>                   
-                        <th>No.</th>
-                        <td>Nama Penuh</td>
-                        <td># Telefon</td>
-                        <td>Alamat</td>
-                        <td># IC</td>
-                        </tr>
-                        
-                </thead>
-                </table>
-                
-
+            <div className="container">
                 <table className="table is-hoverable">
                     <tbody>
                     <tr>
@@ -69,12 +61,15 @@ class MEmployee extends Component {
                         </tr>
                         </tbody>
                 </table>
-                <button onClick={this.addEmployee}>Add employee</button>
+
+                <MButton 
+                    buttonText="Add New Employee"
+                    buttonClass="button is-success is-warning"
+                    onClick={this.addEmployee}
+                    ></MButton>
             </div>
-
-
          );
     }
 }
  
-export default MEmployee;
+export default MEmployee_add;

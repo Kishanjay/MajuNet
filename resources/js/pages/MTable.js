@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import MButton from './MButton.js'
-//import TimetableService from './TimetableService';
+import MButton from '../components/MButton.js';
 import MModal from './MModal.js';
 
 class MTable extends Component {
@@ -25,7 +24,7 @@ class MTable extends Component {
 
     render() { 
         return (
-            <div>
+            <div className="container">
             <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
                 <tr>
