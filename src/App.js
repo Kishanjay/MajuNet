@@ -11,6 +11,7 @@ import 'bulma/css/bulma.css';
 import MFinancial from './MFinancial.js';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import MAdd_Employee from './MAdd_Employee';
 
 const Home = () => (
   <MTable></MTable>
@@ -86,6 +87,7 @@ class App extends Component {
             <Route exact path="/Login" component={Login} />
             <Route exact path="/Employee" component={Employee} />
             <Route exact path="/Employee_Details" component={Employee_Details}/>
+            <Route exact path="/Add_Employee" component={MAdd_Employee}/>
           </div>
 
           <div>
