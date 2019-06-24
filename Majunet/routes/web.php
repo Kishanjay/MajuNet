@@ -11,6 +11,9 @@
 |
 */
 
-Route::view('/{path?}', 'app');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Auth::routes();
+
+Route::view('/{path?}', 'majunet');

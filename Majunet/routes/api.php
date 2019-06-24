@@ -13,9 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-Route::resource('employee', 'API\EmployeeController');
-Route::resource('timetable', 'API\TimetableController');
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
