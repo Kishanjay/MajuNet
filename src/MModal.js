@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 
 class MModal extends Component {
+    // componentDidMount(){
+    //     // Initialize all input of date type.
+    // const calendars = bulmaCalendar.attach('[type="date"]', options);
+
+    // // Loop on each calendar initialized
+    // calendars.forEach(calendar => {
+    //     // Add listener to date:selected event
+    //     calendar.on('date:selected', date => {
+    //         console.log(date);
+    //     });
+    // });
+    // }
     render() { 
         if(!this.props.show){
             return null;
