@@ -5,69 +5,62 @@ class MFinancial extends Component {
         super(props);
     }
 
-    render() { 
-        return ( 
-            <div>
+    render() {
+        return (
+            <div className="container">
                 <form action="/calculation_page.php">
-                    <input className="is-pulled-left" type="text" placeholder="Number of KGs"></input>
-                    <input className="is-pulled-left" type="submit" value="Calculate"></input>
-                    <b>Estimation of Order (advice)</b>
-                
-                <div class="field has-addons columns is-mobile is-centered">
-                    <div class="control">
-                        <input class="input" name="FirstName" type="text" placeholder="Mickey"/>
-                    </div>
-                    <div class="control">
-                        <a class="button is-info">
-                        Search
-                        </a>
-                    </div>
+                    <div className="columns">
+                        <div className="column is-one-third">
+                            <input type="text" placeholder="Number of KGs" />
+                            <button>Calculate</button>
+                        </div>
+                        <div className="column is-one-third has-text-centered has-text-weight-bold is-size-4-desktop">Estimation of Order (advice)
+                        </div>
+                        <div className="column is-one-third">
+                        </div>
                     </div>
                 </form>
-                
-                <br></br>
 
                 <div>
-                <b>Estimation of Order (advice)</b>
-                <table className="table is-bordered is-fullwidth">
-                    <thead>
-                    </thead>
-                    
-                    <tbody>
-                        <tr>
-                            <th>Estimated Requirement</th>
-                            <th>Cost</th>
-                            <th>Total Cost</th>
-                            <th>Estimated Time of Delivery</th>
-                        </tr>
-                        <tr>
-                            <td>Number of package needed</td>
-                            <td></td>
-                            <td rowSpan="5"></td>
-                            <td rowSpan="5"></td>
-                        </tr>
-                        <tr>
-                            <td>Number of total equipment needed</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Other material</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Number of hours</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Number of employees</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table className="table is-bordered is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Estimated Requirement</th>
+                                <th>Cost</th>
+                                <th>Total Cost</th>
+                                <th>Estimated Time of Delivery</th>
+                            </tr>   
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Number of package needed</td>
+                                <td></td>
+                                <td rowSpan="5"></td>
+                                <td rowSpan="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Number of total equipment needed</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Other material</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Number of hours</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Number of employees</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-         );
+        );
     }
 }
- 
+
 export default MFinancial;
