@@ -12,7 +12,6 @@ class MFinancial extends Component {
                     <input className="is-pulled-left" type="text" placeholder="Number of KGs"></input>
                     <input className="is-pulled-left" type="submit" value="Calculate"></input>
                     <b>Estimation of Order (advice)</b>
-                </form>
                 
                 <div class="field has-addons columns is-mobile is-centered">
                     <div class="control">
