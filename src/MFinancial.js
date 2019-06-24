@@ -14,6 +14,22 @@ class MFinancial extends Component {
                     <b>Estimation of Order (advice)</b>
                 </form>
                 
+                <div class="field has-addons columns is-mobile is-centered">
+                    <div class="control">
+                        <input class="input" name="FirstName" type="text" placeholder="Mickey"/>
+                    </div>
+                    <div class="control">
+                        <a class="button is-info">
+                        Search
+                        </a>
+                    </div>
+                    </div>
+                </form>
+                
+                <br></br>
+
+                <div>
+                <b>Estimation of Order (advice)</b>
                 <table className="table is-bordered is-fullwidth">
                     <thead>
                     </thead>
@@ -49,6 +65,7 @@ class MFinancial extends Component {
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
          );
     }

@@ -16,6 +16,13 @@ class MTable extends Component {
         });
     }
 
+    saveEntry = () => {
+        // post to server!
+        this.setState({
+            isOpen: !this.state.isOpen
+          });
+    }
+
     render() { 
         return (
             <div>
@@ -51,6 +58,7 @@ class MTable extends Component {
 
             <MModal 
                 show={this.state.isOpen}
+                onSave={this.saveEntry}
                 onClose={this.toggleModal}
             ></MModal>
             </div>
