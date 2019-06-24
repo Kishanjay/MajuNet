@@ -9,6 +9,10 @@ class MFinancial extends Component {
         return ( 
             <div>
                 <form action="/calculation_page.php">
+                    <input className="is-pulled-left" type="text" placeholder="Number of KGs"></input>
+                    <input className="is-pulled-left" type="submit" value="Calculate"></input>
+                    <b>Estimation of Order (advice)</b>
+                
                 <div class="field has-addons columns is-mobile is-centered">
                     <div class="control">
                         <input class="input" name="FirstName" type="text" placeholder="Mickey"/>
@@ -62,8 +66,6 @@ class MFinancial extends Component {
                 </table>
                 </div>
             </div>
-
-            
          );
     }
 }
