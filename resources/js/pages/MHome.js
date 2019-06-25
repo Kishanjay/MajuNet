@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const style = {
-    backgroundColor: 'white'
+    flexGrow: '1'
 }
 const MHeader = () => (
-    <div>
+    <div style={style}>
         <section className="hero is-dark">
             <div className="hero-body">
                 <div className="container">

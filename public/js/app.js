@@ -68066,11 +68066,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var style = {
-  backgroundColor: 'white'
+  flexGrow: '1'
 };
 
 var MHeader = function MHeader() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: style
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     className: "hero is-dark"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "hero-body"
