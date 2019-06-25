@@ -66610,6 +66610,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _services_Employee__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/Employee */ "./resources/js/services/Employee.js");
+/* harmony import */ var _components_MButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/MButton */ "./resources/js/components/MButton.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66627,6 +66628,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -66679,9 +66681,10 @@ function (_Component) {
         className: "level-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/employee_add"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "button"
-      }, "Add employee")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        className: "button is-warning",
+        buttonText: "Add Employee"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-striped is-narrow is-hoverable is-fullwidth"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Nama Penuh"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "# Telefon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Alamat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "City"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.employees.map(function (emp_name) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, emp_name.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, emp_name.first_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, emp_name.phone), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, emp_name.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, emp_name.city));
@@ -67276,8 +67279,8 @@ var EmployeeService = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/kishannirghin/Desktop/MajuNet/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/kishannirghin/Desktop/MajuNet/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Unimas\Desktop\MajuNet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Unimas\Desktop\MajuNet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
