@@ -11,7 +11,7 @@ constructor(props){
         //console.log("Props: ", this.props);
         return (
             <button 
-                className={this.props.buttonClass}
+                className={this.props.className}
                 onClick={this.props.onClick}
             >
                 {this.props.buttonText}

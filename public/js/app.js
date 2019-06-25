@@ -66404,7 +66404,7 @@ function (_Component) {
     value: function render() {
       //console.log("Props: ", this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: this.props.buttonClass,
+        className: this.props.className,
         onClick: this.props.onClick
       }, this.props.buttonText);
     }
@@ -66463,9 +66463,9 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
-        "class": "footer"
+        className: "footer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "content has-text-centered"
+        className: "content has-text-centered"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "MajuNet"), " by ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "http://www.unimas.my/"
       }, "UNIMAS"), " and ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -66520,10 +66520,80 @@ var MHeader = function MHeader() {
   }, "Timetable"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/FinancialOverview",
     className: "navbar-item"
-  }, "Financial Overview"))))));
+  }, "Financial Overview"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/employee",
+    className: "navbar-item"
+  }, "Employees"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MHeader);
+
+/***/ }),
+
+/***/ "./resources/js/components/MMessage.js":
+/*!*********************************************!*\
+  !*** ./resources/js/components/MMessage.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var MMessage =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(MMessage, _Component);
+
+  function MMessage(props) {
+    _classCallCheck(this, MMessage);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MMessage).call(this, props));
+  }
+
+  _createClass(MMessage, [{
+    key: "render",
+    value: function render() {
+      if (!this.props.response) {
+        return null;
+      }
+
+      var success = this.props.response.status == 201;
+      var message = success ? this.props.onSuccess : this.props.onError;
+      var code = success ? JSON.stringify(this.props.response.data, null, 4) : null;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
+        className: "message is-success"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, message), code && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, code)));
+    }
+  }]);
+
+  return MMessage;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (MMessage);
 
 /***/ }),
 
@@ -66538,8 +66608,8 @@ var MHeader = function MHeader() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _services_Employee__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/Employee */ "./resources/js/services/Employee.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66561,6 +66631,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var MEmployee =
 /*#__PURE__*/
 function (_Component) {
@@ -66577,7 +66648,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/employee').then(function (response) {
+      _services_Employee__WEBPACK_IMPORTED_MODULE_2__["default"].get().then(function (response) {
         console.log(response);
 
         _this.setState({
@@ -66590,11 +66661,23 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        className: "level"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-left"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "title"
-      }, "Senarai Pekerja"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+      }, "Senarai Pekerja"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/employee_add"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "button"
+      }, "Add employee")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-striped is-narrow is-hoverable is-fullwidth"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Nama Penuh"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "# Telefon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Alamat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "# IC"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, this.employees))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nama Penuh"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "# Telefon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Alamat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "# IC"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null))));
     }
   }]);
 
@@ -66617,7 +66700,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_MButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/MButton */ "./resources/js/components/MButton.js");
+/* harmony import */ var _services_Employee__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/Employee */ "./resources/js/services/Employee.js");
+/* harmony import */ var _components_MMessage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/MMessage */ "./resources/js/components/MMessage.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -66627,13 +66714,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
  // const addEmployee = () =>function () {
@@ -66656,55 +66745,160 @@ var MEmployee_add =
 function (_Component) {
   _inherits(MEmployee_add, _Component);
 
-  function MEmployee_add() {
+  function MEmployee_add(props) {
+    var _this;
+
     _classCallCheck(this, MEmployee_add);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MEmployee_add).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MEmployee_add).call(this, props));
+    _this.handleInputChange = _this.handleInputChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.state = {
+      first_name: "",
+      last_name: "",
+      age: "",
+      city: "",
+      address: "",
+      phone: "",
+      response: null
+    };
+    return _this;
   }
 
   _createClass(MEmployee_add, [{
-    key: "addEmployee",
-    value: function addEmployee() {
-      console.log("adding employee"); // should add an employee through the API
-
-      axios.post('/api/employee', {
-        first_name: 'Kishan',
-        last_name: 'Kishan',
-        phone: '0229292',
-        age: '18',
-        address: 'contejeisfjes',
-        city: 'Amsterdam'
-      }).then(function (response) {
-        console.log(response);
+    key: "clearInput",
+    value: function clearInput() {
+      this.setState({
+        first_name: "",
+        last_name: "",
+        age: "",
+        city: "",
+        address: "",
+        phone: ""
       });
+    }
+  }, {
+    key: "handleInputChange",
+    value: function handleInputChange(event) {
+      var target = event.target;
+      var value = target.value;
+      var name = target.name;
+      this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      var _this2 = this;
+
+      var newEmployee = {};
+      if (this.state.first_name) newEmployee.first_name = this.state.first_name;
+      if (this.state.last_name) newEmployee.last_name = this.state.last_name;
+      if (this.state.age) newEmployee.age = this.state.age;
+      if (this.state.city) newEmployee.city = this.state.city;
+      if (this.state.address) newEmployee.address = this.state.address;
+      if (this.state.phone) newEmployee.phone = this.state.phone;
+      _services_Employee__WEBPACK_IMPORTED_MODULE_2__["default"].add(newEmployee).then(function (response) {
+        _this2.setState({
+          response: response
+        });
+
+        _this2.clearInput();
+
+        window.scrollTo(0, 0);
+      });
+      event.preventDefault();
     }
   }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        className: "table is-hoverable"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Nama Penuh:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "title"
+      }, "Register employee"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MMessage__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        response: this.state.response,
+        onSuccess: "Employee added successfully",
+        onError: "Couldn't add employee"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "label"
+      }, "Nama Penuh:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "control"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "first_name",
         className: "input",
         type: "text",
-        placeholder: "Sila isikan nama penuh"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Alamat rumah:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        placeholder: "Sila isikan nama penuh",
+        value: this.state.first_name,
+        onChange: this.handleInputChange
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "label"
+      }, "Nama terakhir:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "control"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "last_name",
+        className: "input",
+        type: "text",
+        placeholder: "Sila isikan nama terakhir",
+        value: this.state.last_name,
+        onChange: this.handleInputChange
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "label"
+      }, "Umur:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "control"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "age",
+        className: "input",
+        type: "text",
+        placeholder: "Sila isikan umur",
+        value: this.state.age,
+        onChange: this.handleInputChange
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "label"
+      }, "Bandar:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "control"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "city",
+        className: "input",
+        placeholder: "Sila isikan bandar",
+        value: this.state.city,
+        onChange: this.handleInputChange
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "label"
+      }, "Alamat rumah:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "control"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        name: "address",
         className: "textarea",
-        type: "text",
-        placeholder: "Sila isikan alamat rumah"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "No IC:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        placeholder: "Sila isikan alamat rumah",
+        value: this.state.address,
+        onChange: this.handleInputChange
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "label"
+      }, "No. Telefon:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "control"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "phone",
         className: "input",
         type: "text",
-        placeholder: "Sila isikan no. IC"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "No. Telefon:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "input",
-        type: "text",
-        placeholder: "Sila isikan no. telefon"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MButton__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        buttonText: "Add New Employee",
-        buttonClass: "button is-success is-warning",
-        onClick: this.addEmployee
+        placeholder: "Sila isikan no. telefon",
+        value: this.state.phone,
+        onChange: this.handleInputChange
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MButton__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        buttonText: "Register New Employee",
+        className: "button is-primary",
+        onClick: this.handleSubmit
       }));
     }
   }]);
@@ -66761,32 +66955,24 @@ function (_Component) {
   _createClass(MFinancial, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         action: "/calculation_page.php"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "columns"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "column is-one-third"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "is-pulled-left",
         type: "text",
         placeholder: "Number of KGs"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "is-pulled-left",
-        type: "submit",
-        value: "Calculate"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Estimation of Order (advice)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "field has-addons columns is-mobile is-centered"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "control"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "input",
-        name: "FirstName",
-        type: "text",
-        placeholder: "Mickey"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "control"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        "class": "button is-info"
-      }, "Search")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Estimation of Order (advice)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Calculate")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "column is-one-third has-text-centered has-text-weight-bold is-size-4-desktop"
+      }, "Estimation of Order (advice)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "column is-one-third"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-fullwidth"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estimated Requirement"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Total Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estimated Time of Delivery")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Number of package needed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estimated Requirement"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Total Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estimated Time of Delivery"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Number of package needed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         rowSpan: "5"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         rowSpan: "5"
@@ -67037,6 +67223,33 @@ var MHeader = function MHeader() {
 
 /***/ }),
 
+/***/ "./resources/js/services/Employee.js":
+/*!*******************************************!*\
+  !*** ./resources/js/services/Employee.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var API_ROUTE = '/api/employee';
+var EmployeeService = {
+  get: function get() {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(API_ROUTE);
+  },
+  add: function add(query) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(API_ROUTE, query);
+  },
+  update: function update() {},
+  del: function del() {}
+};
+/* harmony default export */ __webpack_exports__["default"] = (EmployeeService);
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -67055,8 +67268,8 @@ var MHeader = function MHeader() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Unimas\Desktop\MajuNet\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Unimas\Desktop\MajuNet\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/kishannirghin/Desktop/MajuNet/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/kishannirghin/Desktop/MajuNet/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

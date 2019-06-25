@@ -1,48 +1,45 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import { Link } from 'react-router-dom'
+import EmployeeService from '../services/Employee'
 
 class MEmployee extends Component {
 
     componentDidMount() {
-        axios.get('/api/employee').then(response => {
+        EmployeeService.get().then(response => {
             console.log(response);
             this.setState({
-              employees: response.data
-            })
-          })
-    }
-
-    addEmployee = function () {
-        console.log("adding employee");
-        // should add an employee through the API
-
-        axios.post('/api/employee', {
-            first_name: 'Kishan',
-            last_name: 'Kishan',
-            phone: '0229292',
-            age: '18',
-            address: 'contejeisfjes',
-            city: 'Amsterdam'
-        }).then(response => {
-            console.log(response);
+                employees: response.data
+            });
         });
     }
 
     render() { 
         return ( 
             <div className="container">
-            <h1 className="title">Senarai Pekerja</h1>
+            <nav className="level">
+                <div className="level-left">
+                    <div className="level-item">
+                        <h1 className="title">Senarai Pekerja</h1>
+                    </div>
+                </div>
+                <div className="level-right">
+                    <Link to="/employee_add"><button className="button">Add employee</button></Link>
+                </div>
+            </nav>
             <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
                 <thead>
                     <tr>                   
                         <th>No</th>
-                        <td>Nama Penuh</td>
-                        <td># Telefon</td>
-                        <td>Alamat</td>
-                        <td># IC</td>
-                        </tr>
-                        
+                        <th>Nama Penuh</th>
+                        <th># Telefon</th>
+                        <th>Alamat</th>
+                        <th># IC</th>
+                    </tr> 
                 </thead>
+                <tbody>
+                        <tr>
+                        </tr>    
+                </tbody>
                 </table>
             </div>
 

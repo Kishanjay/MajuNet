@@ -25,6 +25,10 @@
       <Link to="/FinancialOverview" className="navbar-item">
           Financial Overview
       </Link>
+             
+      <Link to="/employee" className="navbar-item">
+          Employees
+      </Link>
   </div>
   </div>
 
