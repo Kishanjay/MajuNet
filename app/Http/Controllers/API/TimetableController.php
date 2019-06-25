@@ -15,7 +15,7 @@ class TimetableController extends Controller
      */
     public function index()
     {
-        $timetable = Timetable::all();
+        $timetable = Timetable::with('employee')->get();
         return $timetable;
     }
 
