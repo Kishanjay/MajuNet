@@ -4,6 +4,9 @@ import EmployeeService from '../services/Employee'
 
 class MEmployee extends Component {
 
+    state={
+        employees:[]
+    }
     componentDidMount() {
         EmployeeService.get().then(response => {
             console.log(response);
@@ -30,18 +33,25 @@ class MEmployee extends Component {
                 <thead>
                     <tr>                   
                         <th>No</th>
-                        <th>Nama Penuh</th>
-                        <th># Telefon</th>
-                        <th>Alamat</th>
-                        <th># IC</th>
-                    </tr> 
+                        <td>Nama Penuh</td>
+                        <td># Telefon</td>
+                        <td>Alamat</td>
+                        <td># IC</td>
+                        </tr>
                 </thead>
+
                 <tbody>
+                        {this.state.employees.map(emp_name =>
                         <tr>
-                        </tr>    
+                            <td>{counter++}</td>
+                            <td>{emp_name.first_name}</td>
+                            <td>{emp_name.phone}</td>
+                            <td>{emp_name.address}</td>
+                            <td>{emp_name.id}</td>
+                        </tr>)}
                 </tbody>
-                </table>
-            </div>
+            </table>
+        </div>
 
 
          );
