@@ -6549,7 +6549,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-opaque {\n    background-color: rgba(0,0,0,0);\n}\n\nbody {\n    /* background: url('https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'); */\n}\n\nmain {\n    margin-top: 64px !important;\n}", ""]);
+exports.push([module.i, ".bg-opaque {\n    background-color: rgba(0,0,0,0);\n}\n\n\nmain {\n    margin-top: 64px !important;\n}\n\n.table-wrapper {\n    padding: 12px;\n    background-color: white;\n    margin-bottom: 20px;\n    border-radius: 8px;\n}\n\nbody {\nbackground: -webkit-gradient(linear,left top, right top,from(#f6ffb7),color-stop(50%, #96efff), to(#7cff75));\nbackground: linear-gradient(90deg,#f6ffb7 0%,#96efff 50%, #7cff75 100%);\n  background-size: 1000%;\n  -webkit-animation: background 120s linear alternate infinite;\n          animation: background 120s linear alternate infinite;\n}\n\n@-webkit-keyframes background {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 100% 0;\n  }\n}\n\n@keyframes background {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 100% 0;\n  }\n}", ""]);
 
 // exports
 
@@ -66787,7 +66787,9 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MTimetableEntry).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "FIRST_TIME_SLOT", 8);
+    _defineProperty(_assertThisInitialized(_this), "FIRST_TIME_SLOT", 6);
+
+    _defineProperty(_assertThisInitialized(_this), "LAST_TIME_SLOT", 20);
 
     return _this;
   }
@@ -66799,6 +66801,9 @@ function (_Component) {
       var endTime = new Date(this.props.entry.end_time);
       var colSpan = endTime.getHours() - startTime.getHours();
       var colOffset = startTime.getHours() - this.FIRST_TIME_SLOT;
+      if (colOffset === 0) colOffset = null;
+      var colOffsetAfter = this.LAST_TIME_SLOT - endTime.getHours();
+      if (colOffsetAfter === 0) colOffsetAfter = null;
       var style = {
         backgroundColor: '#9bd8ab',
         padding: '1px 12px',
@@ -66810,7 +66815,9 @@ function (_Component) {
         colSpan: colSpan
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         style: style
-      }, this.props.entry.employee.first_name, " ", this.props.entry.employee.last_name)));
+      }, this.props.entry.employee.first_name, " ", this.props.entry.employee.last_name)), colOffsetAfter && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        colSpan: colOffsetAfter
+      }));
     }
   }]);
 
@@ -66938,13 +66945,15 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MButton__WEBPACK_IMPORTED_MODULE_3__["default"], {
         className: "button is-warning",
         buttonText: "Add Employee"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "table-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-striped is-narrow is-hoverable is-fullwidth"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Nama Penuh"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "# Telefon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Alamat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "City"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.employees.map(function (employee) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: employee.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, employee.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, employee.first_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, employee.phone), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, employee.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, employee.city));
-      }))));
+      })))));
     }
   }]);
 
@@ -67065,7 +67074,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "title"
@@ -67209,7 +67218,7 @@ function (_Component) {
   _createClass(MFinancial, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         action: "/calculation_page.php"
@@ -67328,6 +67337,8 @@ function (_Component) {
 
       _services_Timetable__WEBPACK_IMPORTED_MODULE_4__["default"].add(entry).then(function (response) {
         console.log(response);
+
+        _this.loadTimetables();
       });
     });
 
@@ -67360,19 +67371,27 @@ function (_Component) {
     value: function render() {
       var tableStyle = {
         tableLayout: 'fixed',
-        width: '100%'
+        width: '100%',
+        padding: '12px',
+        margin: '0px'
       };
       var tdStyle = {
-        width: '10%%'
+        width: '7%%'
       };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "title"
-      }, "Senarai Pekerja"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        className: "table is-bordered is-narrow is-fullwidth",
+      }, "Senarai Pekerja"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "table-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table is-bordered is-narrow is-fullwidth bg-opaque",
         style: tableStyle
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "06:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "07:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         style: tdStyle
       }, "08:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         style: tdStyle
@@ -67392,12 +67411,16 @@ function (_Component) {
         style: tdStyle
       }, "16:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         style: tdStyle
-      }, "17:00"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.timetables.map(function (timetable) {
+      }, "17:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "18:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "19:00"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.timetables.map(function (timetable) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MTimetableEntry__WEBPACK_IMPORTED_MODULE_3__["default"], {
           key: timetable.id,
           entry: timetable
         });
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MButton_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MButton_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         className: "button",
         buttonText: "Add New Entry",
         onClick: this.openEditModal

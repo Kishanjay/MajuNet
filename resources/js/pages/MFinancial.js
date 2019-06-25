@@ -7,7 +7,7 @@ class MFinancial extends Component {
 
     render() {
         return (
-            <div className="container">
+            <main className="container">
                 <form action="/calculation_page.php">
                     <div className="columns">
                         <div className="column has-addons is-one-third">
@@ -64,7 +64,7 @@ class MFinancial extends Component {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </main>
         );
     }
 }

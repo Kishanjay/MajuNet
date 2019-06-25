@@ -41,6 +41,7 @@ class MTable extends Component {
         this.closeEditModal();
         TimetableService.add(entry).then(response => {
             console.log(response);
+            this.loadTimetables();
         });
     }
 
@@ -56,35 +57,44 @@ class MTable extends Component {
     render() {
         const tableStyle = {
             tableLayout: 'fixed',
-            width: '100%'
+            width: '100%',
+            padding: '12px',
+            margin: '0px'
         }
         const tdStyle = {
-            width: '10%%'
+            width: '7%%',
         }
         return (
             <main className="container">
                 <h1 className="title">Senarai Pekerja</h1>
-                <table className="table is-bordered is-narrow is-fullwidth" style={tableStyle}>
-                    <thead>
-                        <tr>
-                            <th style={tdStyle}>08:00</th>
-                            <th style={tdStyle}>09:00</th>
-                            <th style={tdStyle}>10:00</th>
-                            <th style={tdStyle}>11:00</th>
-                            <th style={tdStyle}>12:00</th>
-                            <th style={tdStyle}>13:00</th>
-                            <th style={tdStyle}>14:00</th>
-                            <th style={tdStyle}>15:00</th>
-                            <th style={tdStyle}>16:00</th>
-                            <th style={tdStyle}>17:00</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.timetables.map(timetable =>
-                            <MTimetableEntry key={timetable.id} entry={timetable} />
-                        )}
-                    </tbody>
-                </table>
+
+                <div className="table-wrapper">
+                    <table className="table is-bordered is-narrow is-fullwidth bg-opaque" style={tableStyle}>
+                        <thead>
+                            <tr>
+                                <th style={tdStyle}>06:00</th>
+                                <th style={tdStyle}>07:00</th>
+                                <th style={tdStyle}>08:00</th>
+                                <th style={tdStyle}>09:00</th>
+                                <th style={tdStyle}>10:00</th>
+                                <th style={tdStyle}>11:00</th>
+                                <th style={tdStyle}>12:00</th>
+                                <th style={tdStyle}>13:00</th>
+                                <th style={tdStyle}>14:00</th>
+                                <th style={tdStyle}>15:00</th>
+                                <th style={tdStyle}>16:00</th>
+                                <th style={tdStyle}>17:00</th>
+                                <th style={tdStyle}>18:00</th>
+                                <th style={tdStyle}>19:00</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.timetables.map(timetable =>
+                                <MTimetableEntry key={timetable.id} entry={timetable} />
+                            )}
+                        </tbody>
+                    </table>
+                </div>
 
                 <MButton
                     className="button"
