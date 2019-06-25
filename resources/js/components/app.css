@@ -1,3 +1,4 @@
+/* Cool loading animation (wavyyy says the duck): https://codepen.io/terotic/pen/pBolv */
 .bg-opaque {
     background-color: rgba(0,0,0,0);
 }
@@ -28,3 +29,5 @@ background: linear-gradient(90deg,#f6ffb7 0%,#96efff 50%, #7cff75 100%);
     background-position: 100% 0;
   }
 }
+
+

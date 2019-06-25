@@ -6549,7 +6549,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-opaque {\n    background-color: rgba(0,0,0,0);\n}\n\n\nmain {\n    margin-top: 64px !important;\n}\n\n.table-wrapper {\n    padding: 12px;\n    background-color: white;\n    margin-bottom: 20px;\n    border-radius: 8px;\n}\n\nbody {\nbackground: -webkit-gradient(linear,left top, right top,from(#f6ffb7),color-stop(50%, #96efff), to(#7cff75));\nbackground: linear-gradient(90deg,#f6ffb7 0%,#96efff 50%, #7cff75 100%);\n  background-size: 1000%;\n  -webkit-animation: background 120s linear alternate infinite;\n          animation: background 120s linear alternate infinite;\n}\n\n@-webkit-keyframes background {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 100% 0;\n  }\n}\n\n@keyframes background {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 100% 0;\n  }\n}", ""]);
+exports.push([module.i, "/* Cool loading animation (wavyyy says the duck): https://codepen.io/terotic/pen/pBolv */\n.bg-opaque {\n    background-color: rgba(0,0,0,0);\n}\n\n\nmain {\n    margin-top: 64px !important;\n}\n\n.table-wrapper {\n    padding: 12px;\n    background-color: white;\n    margin-bottom: 20px;\n    border-radius: 8px;\n}\n\nbody {\nbackground: -webkit-gradient(linear,left top, right top,from(#f6ffb7),color-stop(50%, #96efff), to(#7cff75));\nbackground: linear-gradient(90deg,#f6ffb7 0%,#96efff 50%, #7cff75 100%);\n  background-size: 1000%;\n  -webkit-animation: background 120s linear alternate infinite;\n          animation: background 120s linear alternate infinite;\n}\n\n@-webkit-keyframes background {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 100% 0;\n  }\n}\n\n@keyframes background {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 100% 0;\n  }\n}\n\n\n", ""]);
 
 // exports
 
@@ -67404,8 +67404,6 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "onAdd", function (entry) {
-      console.log(entry);
-
       _this.closeEditModal();
 
       _services_Timetable__WEBPACK_IMPORTED_MODULE_4__["default"].add(entry).then(function (response) {
@@ -67415,10 +67413,29 @@ function (_Component) {
       });
     });
 
+    var firstDayDate = new Date();
+    var secondDayDate = new Date();
+    secondDayDate.setDate(secondDayDate.getDate() + 1);
+    var thirdDayDate = new Date();
+    thirdDayDate.setDate(thirdDayDate.getDate() + 2);
+    var fourthDayDate = new Date();
+    fourthDayDate.setDate(fourthDayDate.getDate() + 3);
+    var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     _this.state = {
       isOpen: false,
-      timetables: [] // more like timeslots in the timetable
-
+      timetables: [],
+      // more like timeslots in the timetable
+      week: {
+        firstDay: [],
+        secondDay: [],
+        thirdDay: [],
+        fourthDay: []
+      },
+      firstDayDate: firstDayDate,
+      secondDayDate: secondDayDate,
+      thirdDayDate: thirdDayDate,
+      fourthDayDate: fourthDayDate,
+      weekdays: weekdays
     };
 
     _this.loadTimetables();
@@ -67432,7 +67449,38 @@ function (_Component) {
       var _this2 = this;
 
       _services_Timetable__WEBPACK_IMPORTED_MODULE_4__["default"].get().then(function (response) {
-        console.log(response);
+        var week = {
+          firstDay: [],
+          secondDay: [],
+          thirdDay: [],
+          fourthDay: []
+        };
+        response.data.forEach(function (entry) {
+          var entryDate = new Date(entry.date);
+
+          if (entryDate.getDate() == _this2.state.firstDayDate.getDate()) {
+            week.firstDay.push(entry);
+          }
+
+          if (entryDate.getDate() == _this2.state.secondDayDate.getDate()) {
+            week.secondDay.push(entry);
+          }
+
+          if (entryDate.getDate() == _this2.state.thirdDayDate.getDate()) {
+            week.thirdDay.push(entry);
+          }
+
+          if (entryDate.getDate() == _this2.state.fourthDayDate.getDate()) {
+            week.fourthDay.push(entry);
+          }
+        });
+
+        _this2.setState({
+          week: week
+        });
+
+        console.log("logging week now");
+        console.log(_this2.state.week);
 
         _this2.setState({
           timetables: response.data
@@ -67457,7 +67505,11 @@ function (_Component) {
         className: "title"
       }, "Senarai Pekerja"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-wrapper"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "title"
+      }, "Today"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "subtitle is-5"
+      }, this.state.firstDayDate.getDate(), "-", this.state.firstDayDate.getMonth(), "-", this.state.firstDayDate.getFullYear()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-narrow is-fullwidth bg-opaque",
         style: tableStyle
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -67488,7 +67540,133 @@ function (_Component) {
         style: tdStyle
       }, "18:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         style: tdStyle
-      }, "19:00"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.timetables.map(function (timetable) {
+      }, "19:00"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.week.firstDay.map(function (timetable) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MTimetableEntry__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          key: timetable.id,
+          entry: timetable
+        });
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "table-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "title"
+      }, "Tomorrow"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "subtitle is-5"
+      }, this.state.secondDayDate.getDate(), "-", this.state.secondDayDate.getMonth(), "-", this.state.secondDayDate.getFullYear()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table is-bordered is-narrow is-fullwidth bg-opaque",
+        style: tableStyle
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "06:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "07:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "08:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "09:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "10:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "11:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "12:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "13:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "14:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "15:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "16:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "17:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "18:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "19:00"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.week.secondDay.map(function (timetable) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MTimetableEntry__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          key: timetable.id,
+          entry: timetable
+        });
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "table-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "title"
+      }, this.state.weekdays[this.state.thirdDayDate.getDay()]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "subtitle is-5"
+      }, this.state.thirdDayDate.getDate(), "-", this.state.thirdDayDate.getMonth(), "-", this.state.thirdDayDate.getFullYear()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table is-bordered is-narrow is-fullwidth bg-opaque",
+        style: tableStyle
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "06:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "07:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "08:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "09:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "10:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "11:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "12:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "13:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "14:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "15:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "16:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "17:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "18:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "19:00"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.week.thirdDay.map(function (timetable) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MTimetableEntry__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          key: timetable.id,
+          entry: timetable
+        });
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "table-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "title"
+      }, this.state.weekdays[this.state.fourthDayDate.getDay()]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "subtitle is-5"
+      }, this.state.fourthDayDate.getDate(), "-", this.state.fourthDayDate.getMonth(), "-", this.state.fourthDayDate.getFullYear()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table is-bordered is-narrow is-fullwidth bg-opaque",
+        style: tableStyle
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "06:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "07:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "08:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "09:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "10:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "11:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "12:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "13:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "14:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "15:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "16:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "17:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "18:00"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        style: tdStyle
+      }, "19:00"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.week.fourthDay.map(function (timetable) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MTimetableEntry__WEBPACK_IMPORTED_MODULE_3__["default"], {
           key: timetable.id,
           entry: timetable

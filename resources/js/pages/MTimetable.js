@@ -9,10 +9,35 @@ class MTable extends Component {
     constructor(props) {
         super(props);
 
+
+        const firstDayDate = new Date();
+        const secondDayDate = new Date();
+        secondDayDate.setDate(secondDayDate.getDate() + 1);
+        const thirdDayDate = new Date();
+        thirdDayDate.setDate(thirdDayDate.getDate() + 2);
+        const fourthDayDate = new Date();
+        fourthDayDate.setDate(fourthDayDate.getDate() + 3);
+
+        const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
         this.state = {
             isOpen: false,
-            timetables: [] // more like timeslots in the timetable
+            timetables: [], // more like timeslots in the timetable
+            week: {
+                firstDay: [],
+                secondDay: [],
+                thirdDay: [],
+                fourthDay: []
+            },
+            firstDayDate,
+            secondDayDate,
+            thirdDayDate,
+            fourthDayDate,
+            weekdays
         };
+
+
+
 
         this.loadTimetables();
     }
@@ -37,7 +62,6 @@ class MTable extends Component {
      * Adds a timetable entry
      */
     onAdd = (entry) => {
-        console.log(entry);
         this.closeEditModal();
         TimetableService.add(entry).then(response => {
             console.log(response);
@@ -47,7 +71,33 @@ class MTable extends Component {
 
     loadTimetables() {
         TimetableService.get().then(response => {
-            console.log(response);
+            const week = {
+                firstDay: [],
+                secondDay: [],
+                thirdDay: [],
+                fourthDay: []
+            }
+            response.data.forEach(entry => {
+                const entryDate = new Date(entry.date);
+                if (entryDate.getDate() == this.state.firstDayDate.getDate()){
+                    week.firstDay.push(entry);
+                }
+                if (entryDate.getDate() == this.state.secondDayDate.getDate()){
+                    week.secondDay.push(entry);
+                }
+                if (entryDate.getDate() == this.state.thirdDayDate.getDate()){
+                    week.thirdDay.push(entry);
+                }
+                if (entryDate.getDate() == this.state.fourthDayDate.getDate()){
+                    week.fourthDay.push(entry);
+                }
+            });
+            this.setState({
+                week: week
+            });
+            console.log("logging week now");
+            console.log(this.state.week);
+
             this.setState({
                 timetables: response.data
             });
@@ -69,6 +119,10 @@ class MTable extends Component {
                 <h1 className="title">Senarai Pekerja</h1>
 
                 <div className="table-wrapper">
+                    <h2 className="title">Today</h2>
+                    <h3 className="subtitle is-5">
+                        {this.state.firstDayDate.getDate()}-{this.state.firstDayDate.getMonth()}-{this.state.firstDayDate.getFullYear()}
+                    </h3>
                     <table className="table is-bordered is-narrow is-fullwidth bg-opaque" style={tableStyle}>
                         <thead>
                             <tr>
@@ -89,7 +143,103 @@ class MTable extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.timetables.map(timetable =>
+                            {this.state.week.firstDay.map(timetable =>
+                                <MTimetableEntry key={timetable.id} entry={timetable} />
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="table-wrapper">
+                    <h2 className="title">Tomorrow</h2>
+                    <h3 className="subtitle is-5">
+                        {this.state.secondDayDate.getDate()}-{this.state.secondDayDate.getMonth()}-{this.state.secondDayDate.getFullYear()}
+                    </h3>
+                    <table className="table is-bordered is-narrow is-fullwidth bg-opaque" style={tableStyle}>
+                        <thead>
+                            <tr>
+                                <th style={tdStyle}>06:00</th>
+                                <th style={tdStyle}>07:00</th>
+                                <th style={tdStyle}>08:00</th>
+                                <th style={tdStyle}>09:00</th>
+                                <th style={tdStyle}>10:00</th>
+                                <th style={tdStyle}>11:00</th>
+                                <th style={tdStyle}>12:00</th>
+                                <th style={tdStyle}>13:00</th>
+                                <th style={tdStyle}>14:00</th>
+                                <th style={tdStyle}>15:00</th>
+                                <th style={tdStyle}>16:00</th>
+                                <th style={tdStyle}>17:00</th>
+                                <th style={tdStyle}>18:00</th>
+                                <th style={tdStyle}>19:00</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.week.secondDay.map(timetable =>
+                                <MTimetableEntry key={timetable.id} entry={timetable} />
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="table-wrapper">
+                    <h2 className="title">{this.state.weekdays[this.state.thirdDayDate.getDay()]}</h2>
+                    <h3 className="subtitle is-5">
+                        {this.state.thirdDayDate.getDate()}-{this.state.thirdDayDate.getMonth()}-{this.state.thirdDayDate.getFullYear()}
+                    </h3>
+                    <table className="table is-bordered is-narrow is-fullwidth bg-opaque" style={tableStyle}>
+                        <thead>
+                            <tr>
+                                <th style={tdStyle}>06:00</th>
+                                <th style={tdStyle}>07:00</th>
+                                <th style={tdStyle}>08:00</th>
+                                <th style={tdStyle}>09:00</th>
+                                <th style={tdStyle}>10:00</th>
+                                <th style={tdStyle}>11:00</th>
+                                <th style={tdStyle}>12:00</th>
+                                <th style={tdStyle}>13:00</th>
+                                <th style={tdStyle}>14:00</th>
+                                <th style={tdStyle}>15:00</th>
+                                <th style={tdStyle}>16:00</th>
+                                <th style={tdStyle}>17:00</th>
+                                <th style={tdStyle}>18:00</th>
+                                <th style={tdStyle}>19:00</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.week.thirdDay.map(timetable =>
+                                <MTimetableEntry key={timetable.id} entry={timetable} />
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="table-wrapper">
+                <h2 className="title">{this.state.weekdays[this.state.fourthDayDate.getDay()]}</h2>
+                    <h3 className="subtitle is-5">
+                        {this.state.fourthDayDate.getDate()}-{this.state.fourthDayDate.getMonth()}-{this.state.fourthDayDate.getFullYear()}
+                    </h3>
+                    <table className="table is-bordered is-narrow is-fullwidth bg-opaque" style={tableStyle}>
+                        <thead>
+                            <tr>
+                                <th style={tdStyle}>06:00</th>
+                                <th style={tdStyle}>07:00</th>
+                                <th style={tdStyle}>08:00</th>
+                                <th style={tdStyle}>09:00</th>
+                                <th style={tdStyle}>10:00</th>
+                                <th style={tdStyle}>11:00</th>
+                                <th style={tdStyle}>12:00</th>
+                                <th style={tdStyle}>13:00</th>
+                                <th style={tdStyle}>14:00</th>
+                                <th style={tdStyle}>15:00</th>
+                                <th style={tdStyle}>16:00</th>
+                                <th style={tdStyle}>17:00</th>
+                                <th style={tdStyle}>18:00</th>
+                                <th style={tdStyle}>19:00</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.week.fourthDay.map(timetable =>
                                 <MTimetableEntry key={timetable.id} entry={timetable} />
                             )}
                         </tbody>
