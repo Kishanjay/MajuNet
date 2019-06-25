@@ -66463,9 +66463,9 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
-        "class": "footer"
+        className: "footer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "content has-text-centered"
+        className: "content has-text-centered"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "MajuNet"), " by ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "http://www.unimas.my/"
       }, "UNIMAS"), " and ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -66550,13 +66550,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -66567,20 +66569,34 @@ function (_Component) {
   _inherits(MEmployee, _Component);
 
   function MEmployee() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, MEmployee);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MEmployee).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MEmployee)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      employees: []
+    });
+
+    return _this;
   }
 
   _createClass(MEmployee, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this = this;
+      var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/employee').then(function (response) {
-        console.log(response);
+        console.log(response.data);
 
-        _this.setState({
+        _this2.setState({
           employees: response.data
         });
       });
@@ -66588,13 +66604,17 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      //console.log(this.state.employees);
+      var counter = 1;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "title"
       }, "Senarai Pekerja"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-striped is-narrow is-hoverable is-fullwidth"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Nama Penuh"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "# Telefon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Alamat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "# IC"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, this.employees))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Nama Penuh"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "# Telefon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Alamat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "# IC"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.employees.map(function (emp_name) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, counter++), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, emp_name.first_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, emp_name.phone), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, emp_name.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, emp_name.id));
+      }))));
     }
   }]);
 
@@ -66636,20 +66656,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
- // const addEmployee = () =>function () {
-//     console.log("adding employee");
-//     // should add an employee through the API
-//     axios.post('/api/employee', {
-//         first_name: 'Kishan',
-//         last_name: 'Kishan',
-//         phone: '0229292',
-//         age: '18',
-//         address: 'contejeisfjes',
-//         city: 'Amsterdam'
-//     }).then(response => {
-//         console.log(response);
-//     });
-// }
+
 
 var MEmployee_add =
 /*#__PURE__*/
@@ -66667,13 +66674,17 @@ function (_Component) {
     value: function addEmployee() {
       console.log("adding employee"); // should add an employee through the API
 
+      var first_name = document.getElementById('first_name').value; // const first_name = document.getElementById('name').value
+      // const first_name = document.getElementById('name').value
+      // const first_name = document.getElementById('name').value
+
       axios.post('/api/employee', {
-        first_name: 'Kishan',
-        last_name: 'Kishan',
-        phone: '0229292',
-        age: '18',
-        address: 'contejeisfjes',
-        city: 'Amsterdam'
+        first_name: first_name // last_name: 'Kishan',
+        // phone: '0229292',
+        // age: '18',
+        // address: 'contejeisfjes',
+        // city: 'Amsterdam'
+
       }).then(function (response) {
         console.log(response);
       });
@@ -66688,6 +66699,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Nama Penuh:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "input",
         type: "text",
+        id: "first_name",
         placeholder: "Sila isikan nama penuh"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Alamat rumah:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "textarea",
@@ -66761,32 +66773,24 @@ function (_Component) {
   _createClass(MFinancial, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         action: "/calculation_page.php"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "columns"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "column is-one-third"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "is-pulled-left",
         type: "text",
         placeholder: "Number of KGs"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "is-pulled-left",
-        type: "submit",
-        value: "Calculate"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Estimation of Order (advice)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "field has-addons columns is-mobile is-centered"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "control"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "input",
-        name: "FirstName",
-        type: "text",
-        placeholder: "Mickey"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "control"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        "class": "button is-info"
-      }, "Search")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Estimation of Order (advice)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Calculate")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "column is-one-third has-text-centered has-text-weight-bold is-size-4-desktop"
+      }, "Estimation of Order (advice)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "column is-one-third"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-fullwidth"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estimated Requirement"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Total Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estimated Time of Delivery")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Number of package needed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estimated Requirement"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Total Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estimated Time of Delivery"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Number of package needed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         rowSpan: "5"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         rowSpan: "5"
