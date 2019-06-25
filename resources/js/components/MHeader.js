@@ -4,7 +4,6 @@
  import { Link } from 'react-router-dom'
 
  const MHeader = () => (
-  <div className="notification">
   <div>
   <nav className="navbar is-transparent">
   <div className="navbar-brand">
@@ -33,9 +32,6 @@
   </div>
 
 </nav>
-</div>
-
-
 </div>
  )
 

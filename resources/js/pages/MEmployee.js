@@ -24,7 +24,7 @@ class MEmployee extends Component {
 
     render() {
         return (
-            <div className="container">
+            <main className="container">
                 <nav className="level">
                     <div className="level-left">
                         <div className="level-item">
@@ -49,19 +49,17 @@ class MEmployee extends Component {
                     </thead>
 
                     <tbody>
-                        {this.state.employees.map(emp_name =>
-                            <tr>
-                                <td>{emp_name.id}</td>
-                                <td>{emp_name.first_name}</td>
-                                <td>{emp_name.phone}</td>
-                                <td>{emp_name.address}</td>
-                                <td>{emp_name.city}</td>
+                        {this.state.employees.map(employee =>
+                            <tr key={employee.id}>
+                                <td>{employee.id}</td>
+                                <td>{employee.first_name}</td>
+                                <td>{employee.phone}</td>
+                                <td>{employee.address}</td>
+                                <td>{employee.city}</td>
                             </tr>)}
                     </tbody>
                 </table>
-            </div>
-
-
+            </main>
         );
     }
 }

@@ -3,23 +3,6 @@ import MButton from '../components/MButton'
 import EmployeeService from '../services/Employee'
 import MMessage from '../components/MMessage'
 
-// const addEmployee = () =>function () {
-//     console.log("adding employee");
-//     // should add an employee through the API
-
-//     axios.post('/api/employee', {
-//         first_name: 'Kishan',
-//         last_name: 'Kishan',
-//         phone: '0229292',
-//         age: '18',
-//         address: 'contejeisfjes',
-//         city: 'Amsterdam'
-//     }).then(response => {
-//         console.log(response);
-//     });
-// }
-
-
 class MEmployee_add extends Component {
     constructor(props) {
         super(props);
