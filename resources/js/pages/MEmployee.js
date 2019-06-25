@@ -3,32 +3,22 @@ import axios from 'axios'
 
 class MEmployee extends Component {
 
+    state={
+        employees:[]
+    }
     componentDidMount() {
-        axios.get('/api/employee').then(response => {
-            console.log(response);
-            this.setState({
-              employees: response.data
-            })
+        axios.get('/api/employee')
+            .then(response => {
+                    console.log(response.data);
+                    this.setState({
+                        employees: response.data
+                })
           })
     }
 
-    addEmployee = function () {
-        console.log("adding employee");
-        // should add an employee through the API
-
-        axios.post('/api/employee', {
-            first_name: 'Kishan',
-            last_name: 'Kishan',
-            phone: '0229292',
-            age: '18',
-            address: 'contejeisfjes',
-            city: 'Amsterdam'
-        }).then(response => {
-            console.log(response);
-        });
-    }
-
-    render() { 
+    render() {
+        //console.log(this.state.employees);
+        var counter = 1;
         return ( 
             <div className="container">
             <h1 className="title">Senarai Pekerja</h1>
@@ -41,10 +31,20 @@ class MEmployee extends Component {
                         <td>Alamat</td>
                         <td># IC</td>
                         </tr>
-                        
                 </thead>
-                </table>
-            </div>
+
+                <tbody>
+                        {this.state.employees.map(emp_name =>
+                        <tr>
+                            <td>{counter++}</td>
+                            <td>{emp_name.first_name}</td>
+                            <td>{emp_name.phone}</td>
+                            <td>{emp_name.address}</td>
+                            <td>{emp_name.id}</td>
+                        </tr>)}
+                </tbody>
+            </table>
+        </div>
 
 
          );
