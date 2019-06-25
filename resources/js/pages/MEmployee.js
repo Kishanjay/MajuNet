@@ -4,9 +4,14 @@ import EmployeeService from '../services/Employee'
 
 class MEmployee extends Component {
 
-    state={
-        employees:[]
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            employees: []
+        }
     }
+
     componentDidMount() {
         EmployeeService.get().then(response => {
             console.log(response);
@@ -16,46 +21,46 @@ class MEmployee extends Component {
         });
     }
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <div className="container">
-            <nav className="level">
-                <div className="level-left">
-                    <div className="level-item">
-                        <h1 className="title">Senarai Pekerja</h1>
+                <nav className="level">
+                    <div className="level-left">
+                        <div className="level-item">
+                            <h1 className="title">Senarai Pekerja</h1>
+                        </div>
                     </div>
-                </div>
-                <div className="level-right">
-                    <Link to="/employee_add"><button className="button">Add employee</button></Link>
-                </div>
-            </nav>
-            <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                <thead>
-                    <tr>                   
-                        <th>No</th>
-                        <td>Nama Penuh</td>
-                        <td># Telefon</td>
-                        <td>Alamat</td>
-                        <td>City</td>
-                        </tr>
-                </thead>
-
-                <tbody>
-                        {this.state.employees.map(emp_name =>
+                    <div className="level-right">
+                        <Link to="/employee_add"><button className="button">Add employee</button></Link>
+                    </div>
+                </nav>
+                <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <thead>
                         <tr>
-                            <td>{emp_name.id}</td>
-                            <td>{emp_name.first_name}</td>
-                            <td>{emp_name.phone}</td>
-                            <td>{emp_name.address}</td>
-                            <td>{emp_name.city}</td>
-                        </tr>)}
-                </tbody>
-            </table>
-        </div>
+                            <th>No</th>
+                            <td>Nama Penuh</td>
+                            <td># Telefon</td>
+                            <td>Alamat</td>
+                            <td>City</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {this.state.employees.map(emp_name =>
+                            <tr>
+                                <td>{emp_name.id}</td>
+                                <td>{emp_name.first_name}</td>
+                                <td>{emp_name.phone}</td>
+                                <td>{emp_name.address}</td>
+                                <td>{emp_name.city}</td>
+                            </tr>)}
+                    </tbody>
+                </table>
+            </div>
 
 
-         );
+        );
     }
 }
- 
+
 export default MEmployee;
