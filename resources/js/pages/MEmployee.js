@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import EmployeeService from '../services/Employee'
+import MButton from '../components/MButton';
 
 class MEmployee extends Component {
 
@@ -31,7 +32,9 @@ class MEmployee extends Component {
                         </div>
                     </div>
                     <div className="level-right">
-                        <Link to="/employee_add"><button className="button">Add employee</button></Link>
+                        <Link to="/employee_add">
+                            <MButton className="button is-warning" buttonText="Add Employee"></MButton>
+                        </Link>
                     </div>
                 </nav>
                 <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">

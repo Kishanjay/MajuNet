@@ -10,9 +10,15 @@ class MFinancial extends Component {
             <div className="container">
                 <form action="/calculation_page.php">
                     <div className="columns">
-                        <div className="column is-one-third">
-                            <input type="text" placeholder="Number of KGs" />
-                            <button>Calculate</button>
+                        <div className="column has-addons is-one-third">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Number of KGs" />
+                                </div>
+                                <div class="control">
+                                    <button class="button is-info">Search</button>
+                                </div>
+                            </div>
                         </div>
                         <div className="column is-one-third has-text-centered has-text-weight-bold is-size-4-desktop">Estimation of Order (advice)
                         </div>
