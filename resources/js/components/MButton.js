@@ -10,7 +10,8 @@ constructor(props){
     render() {
         //console.log("Props: ", this.props);
         return (
-            <button 
+            <button
+                style={this.props.style}
                 className={this.props.className}
                 onClick={this.props.onClick}
             >

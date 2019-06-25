@@ -79,16 +79,16 @@ class MTable extends Component {
             }
             response.data.forEach(entry => {
                 const entryDate = new Date(entry.date);
-                if (entryDate.getDate() == this.state.firstDayDate.getDate()){
+                if (entryDate.getDate() == this.state.firstDayDate.getDate()) {
                     week.firstDay.push(entry);
                 }
-                if (entryDate.getDate() == this.state.secondDayDate.getDate()){
+                if (entryDate.getDate() == this.state.secondDayDate.getDate()) {
                     week.secondDay.push(entry);
                 }
-                if (entryDate.getDate() == this.state.thirdDayDate.getDate()){
+                if (entryDate.getDate() == this.state.thirdDayDate.getDate()) {
                     week.thirdDay.push(entry);
                 }
-                if (entryDate.getDate() == this.state.fourthDayDate.getDate()){
+                if (entryDate.getDate() == this.state.fourthDayDate.getDate()) {
                     week.fourthDay.push(entry);
                 }
             });
@@ -114,15 +114,33 @@ class MTable extends Component {
         const tdStyle = {
             width: '7%%',
         }
+        
+        const addButtonStyle = {
+            position: 'fixed',
+            right: '100px',
+            bottom: '100px',
+            borderRadius: '100%',
+            width: '80px',
+            height: '80px',
+            fontWeight: 'bold',
+            boxShadow: '0px 0px 14px -4px black'
+        }
         return (
             <main className="container">
                 <h1 className="title">Senarai Pekerja</h1>
 
                 <div className="table-wrapper">
-                    <h2 className="title">Today</h2>
-                    <h3 className="subtitle is-5">
-                        {this.state.firstDayDate.getDate()}-{this.state.firstDayDate.getMonth()}-{this.state.firstDayDate.getFullYear()}
-                    </h3>
+                    <div className="level">
+                        <div className="level-left">
+                            <h2 className="title is-5">Today</h2>
+                        </div>
+                        <div className="level-left">
+                            <h3 className="subtitle is-6">
+                                {this.state.firstDayDate.getDate()}-{this.state.firstDayDate.getMonth()}-{this.state.firstDayDate.getFullYear()}
+                            </h3>
+                        </div>
+                    </div>
+
                     <table className="table is-bordered is-narrow is-fullwidth bg-opaque" style={tableStyle}>
                         <thead>
                             <tr>
@@ -151,10 +169,18 @@ class MTable extends Component {
                 </div>
 
                 <div className="table-wrapper">
-                    <h2 className="title">Tomorrow</h2>
-                    <h3 className="subtitle is-5">
-                        {this.state.secondDayDate.getDate()}-{this.state.secondDayDate.getMonth()}-{this.state.secondDayDate.getFullYear()}
-                    </h3>
+                    <div className="level">
+                        <div className="level-left">
+                            <h2 className="title is-5">Tomorrow</h2>
+                        </div>
+                        <div className="level-right">
+                            <h3 className="subtitle is-6">
+                                {this.state.secondDayDate.getDate()}-{this.state.secondDayDate.getMonth()}-{this.state.secondDayDate.getFullYear()}
+                            </h3>
+                        </div>
+                    </div>
+
+
                     <table className="table is-bordered is-narrow is-fullwidth bg-opaque" style={tableStyle}>
                         <thead>
                             <tr>
@@ -183,10 +209,17 @@ class MTable extends Component {
                 </div>
 
                 <div className="table-wrapper">
-                    <h2 className="title">{this.state.weekdays[this.state.thirdDayDate.getDay()]}</h2>
-                    <h3 className="subtitle is-5">
-                        {this.state.thirdDayDate.getDate()}-{this.state.thirdDayDate.getMonth()}-{this.state.thirdDayDate.getFullYear()}
-                    </h3>
+                    <div className="level">
+                        <div className="level-left">
+                            <h2 className="title is-5">{this.state.weekdays[this.state.thirdDayDate.getDay()]}</h2>
+                        </div>
+                        <div className="level-right">
+                            <h3 className="subtitle is-6">
+                                {this.state.thirdDayDate.getDate()}-{this.state.thirdDayDate.getMonth()}-{this.state.thirdDayDate.getFullYear()}
+                            </h3>
+                        </div>
+                    </div>
+
                     <table className="table is-bordered is-narrow is-fullwidth bg-opaque" style={tableStyle}>
                         <thead>
                             <tr>
@@ -215,10 +248,17 @@ class MTable extends Component {
                 </div>
 
                 <div className="table-wrapper">
-                <h2 className="title">{this.state.weekdays[this.state.fourthDayDate.getDay()]}</h2>
-                    <h3 className="subtitle is-5">
-                        {this.state.fourthDayDate.getDate()}-{this.state.fourthDayDate.getMonth()}-{this.state.fourthDayDate.getFullYear()}
-                    </h3>
+                    <div className="level">
+                        <div className="level-left" >
+                            <h2 className="title is-5">{this.state.weekdays[this.state.fourthDayDate.getDay()]}</h2>
+                        </div>
+                        <div className="level-right">
+                            <h3 className="subtitle is-6">
+                                {this.state.fourthDayDate.getDate()}-{this.state.fourthDayDate.getMonth()}-{this.state.fourthDayDate.getFullYear()}
+                            </h3>
+                        </div>
+                    </div>
+
                     <table className="table is-bordered is-narrow is-fullwidth bg-opaque" style={tableStyle}>
                         <thead>
                             <tr>
@@ -247,8 +287,9 @@ class MTable extends Component {
                 </div>
 
                 <MButton
-                    className="button"
-                    buttonText="Add New Entry"
+                    style={addButtonStyle}
+                    className="button is-warning"
+                    buttonText="Add +"
                     onClick={this.openEditModal}>
                 </MButton>
 

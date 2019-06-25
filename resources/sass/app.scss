@@ -1,8 +1,93 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url(https://fonts.googleapis.com/css?family=Fira+Mono:400,700);
 
-// Variables
-@import 'variables';
+$col-bg: rgb(38, 219, 219);
+$col-text: #ffdd57;
+$wave-width: 3px;
+$wave-size: 40px;
+$wave-speed: 1s;
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@keyframes waver {
+  0% { border-radius: 2px; }
+  100% { border-radius: 20px; }
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+ }
+
+body {
+  font-family: 'Fira Mono','Andale Mono', AndaleMono, monospace;
+  color: $col-text;
+  background: $col-bg;
+}
+
+h3 {
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.loading {
+  text-align: center;
+  font-size: 0.8em;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 400px;
+  height: 200px;
+}
+
+.loader-wavy, .loader-wavy::before, .loader-wavy::after {
+  width: $wave-size;
+  height: $wave-size;
+  border-radius: 50%;
+  border: solid $wave-width transparent;
+}
+
+.loader-wavy {
+    border-bottom-color: $col-text;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    animation: waver $wave-speed infinite alternate ease-in-out;
+    position: relative;
+}
+
+.loader-wavy::before,
+.loader-wavy::after{
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.loader-wavy::before {
+    border-bottom-color: $col-text;
+    left: -$wave-size + $wave-width*4;
+    top: -$wave-width;
+    animation: waver $wave-speed infinite alternate ease-in-out;
+}
+
+.loader-wavy::after {
+    border-bottom-color: $col-text;
+    left: $wave-size/2 + $wave-width;
+    top: -$wave-width;
+    animation: waver $wave-speed infinite alternate ease-in-out;
+}
+
+.navbar-brand {
+  width: 128px;
+}
+.loading {
+  width: 116px;
+}
+.loader-wavy {
+  margin-top: 50px;
+}
+
+/* THE END */
+/**/

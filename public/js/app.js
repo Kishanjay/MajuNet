@@ -66419,13 +66419,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_MTimetable_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/MTimetable.js */ "./resources/js/pages/MTimetable.js");
 /* harmony import */ var _pages_MEmployee_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/MEmployee.js */ "./resources/js/pages/MEmployee.js");
 /* harmony import */ var _pages_MEmployee_add_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pages/MEmployee_add.js */ "./resources/js/pages/MEmployee_add.js");
-/* harmony import */ var _pages_Mhome_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/Mhome.js */ "./resources/js/pages/Mhome.js");
-/* harmony import */ var bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! bulma/css/bulma.css */ "./node_modules/bulma/css/bulma.css");
-/* harmony import */ var bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var bulma_calendar_dist_css_bulma_calendar_min_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! bulma-calendar/dist/css/bulma-calendar.min.css */ "./node_modules/bulma-calendar/dist/css/bulma-calendar.min.css");
-/* harmony import */ var bulma_calendar_dist_css_bulma_calendar_min_css__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(bulma_calendar_dist_css_bulma_calendar_min_css__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app.css */ "./resources/js/components/app.css");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _pages_MLogin_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/MLogin.js */ "./resources/js/pages/MLogin.js");
+/* harmony import */ var _pages_Mhome_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/Mhome.js */ "./resources/js/pages/Mhome.js");
+/* harmony import */ var bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! bulma/css/bulma.css */ "./node_modules/bulma/css/bulma.css");
+/* harmony import */ var bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var bulma_calendar_dist_css_bulma_calendar_min_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! bulma-calendar/dist/css/bulma-calendar.min.css */ "./node_modules/bulma-calendar/dist/css/bulma-calendar.min.css");
+/* harmony import */ var bulma_calendar_dist_css_bulma_calendar_min_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(bulma_calendar_dist_css_bulma_calendar_min_css__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.css */ "./resources/js/components/app.css");
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_13__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66459,6 +66460,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var App =
 /*#__PURE__*/
 function (_Component) {
@@ -66476,7 +66478,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MHeader__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/",
-        component: _pages_Mhome_js__WEBPACK_IMPORTED_MODULE_9__["default"]
+        component: _pages_Mhome_js__WEBPACK_IMPORTED_MODULE_10__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/Timetable",
@@ -66493,6 +66495,10 @@ function (_Component) {
         exact: true,
         path: "/Employee_add",
         component: _pages_MEmployee_add_js__WEBPACK_IMPORTED_MODULE_8__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/Login",
+        component: _pages_MLogin_js__WEBPACK_IMPORTED_MODULE_9__["default"]
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MFootnote_js__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
     }
   }]);
@@ -66551,6 +66557,7 @@ function (_Component) {
     value: function render() {
       //console.log("Props: ", this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        style: this.props.style,
         className: this.props.className,
         onClick: this.props.onClick
       }, this.props.buttonText);
@@ -66651,7 +66658,14 @@ var MHeader = function MHeader() {
     className: "navbar is-transparent"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar-brand"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/",
+    className: "navbar-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "loading"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "loader-wavy"
+  }), "MajuNet")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navbar-burger burger",
     "data-target": "navbarExampleTransparentExample"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -67332,6 +67346,103 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/pages/MLogin.js":
+/*!**************************************!*\
+  !*** ./resources/js/pages/MLogin.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_MButton_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/MButton.js */ "./resources/js/components/MButton.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var MLogin =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(MLogin, _Component);
+
+  function MLogin() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, MLogin);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MLogin)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {});
+
+    return _this;
+  }
+
+  _createClass(MLogin, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "field"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "label"
+      }, "Username"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "control has-icons-left has-icons-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "input",
+        type: "text",
+        placeholder: "Masukkan nama pengguna anda"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "label"
+      }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "control has-icons-left has-icons-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "input",
+        type: "password",
+        placeholder: "Masukkan kata laluan anda"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "field is-grouped"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "control"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MButton_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        buttonClass: "button is-link",
+        buttonText: "Log Masuk"
+      }))));
+    }
+  }]);
+
+  return MLogin;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (MLogin);
+
+/***/ }),
+
 /***/ "./resources/js/pages/MTimetable.js":
 /*!******************************************!*\
   !*** ./resources/js/pages/MTimetable.js ***!
@@ -67499,17 +67610,33 @@ function (_Component) {
       var tdStyle = {
         width: '7%%'
       };
+      var addButtonStyle = {
+        position: 'fixed',
+        right: '100px',
+        bottom: '100px',
+        borderRadius: '100%',
+        width: '80px',
+        height: '80px',
+        fontWeight: 'bold',
+        boxShadow: '0px 0px 14px -4px black'
+      };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "title"
       }, "Senarai Pekerja"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "title"
-      }, "Today"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "subtitle is-5"
-      }, this.state.firstDayDate.getDate(), "-", this.state.firstDayDate.getMonth(), "-", this.state.firstDayDate.getFullYear()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "title is-5"
+      }, "Today")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-left"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "subtitle is-6"
+      }, this.state.firstDayDate.getDate(), "-", this.state.firstDayDate.getMonth(), "-", this.state.firstDayDate.getFullYear()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-narrow is-fullwidth bg-opaque",
         style: tableStyle
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -67547,11 +67674,17 @@ function (_Component) {
         });
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "title"
-      }, "Tomorrow"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "subtitle is-5"
-      }, this.state.secondDayDate.getDate(), "-", this.state.secondDayDate.getMonth(), "-", this.state.secondDayDate.getFullYear()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "title is-5"
+      }, "Tomorrow")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "subtitle is-6"
+      }, this.state.secondDayDate.getDate(), "-", this.state.secondDayDate.getMonth(), "-", this.state.secondDayDate.getFullYear()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-narrow is-fullwidth bg-opaque",
         style: tableStyle
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -67589,11 +67722,17 @@ function (_Component) {
         });
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "title"
-      }, this.state.weekdays[this.state.thirdDayDate.getDay()]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "subtitle is-5"
-      }, this.state.thirdDayDate.getDate(), "-", this.state.thirdDayDate.getMonth(), "-", this.state.thirdDayDate.getFullYear()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "title is-5"
+      }, this.state.weekdays[this.state.thirdDayDate.getDay()])), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "subtitle is-6"
+      }, this.state.thirdDayDate.getDate(), "-", this.state.thirdDayDate.getMonth(), "-", this.state.thirdDayDate.getFullYear()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-narrow is-fullwidth bg-opaque",
         style: tableStyle
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -67631,11 +67770,17 @@ function (_Component) {
         });
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "title"
-      }, this.state.weekdays[this.state.fourthDayDate.getDay()]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "subtitle is-5"
-      }, this.state.fourthDayDate.getDate(), "-", this.state.fourthDayDate.getMonth(), "-", this.state.fourthDayDate.getFullYear()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "title is-5"
+      }, this.state.weekdays[this.state.fourthDayDate.getDay()])), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "level-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "subtitle is-6"
+      }, this.state.fourthDayDate.getDate(), "-", this.state.fourthDayDate.getMonth(), "-", this.state.fourthDayDate.getFullYear()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table is-bordered is-narrow is-fullwidth bg-opaque",
         style: tableStyle
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
@@ -67672,8 +67817,9 @@ function (_Component) {
           entry: timetable
         });
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_MButton_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        className: "button",
-        buttonText: "Add New Entry",
+        style: addButtonStyle,
+        className: "button is-warning",
+        buttonText: "Add +",
         onClick: this.openEditModal
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MTimetableEditModal_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
         isOpen: this.state.isOpen,
