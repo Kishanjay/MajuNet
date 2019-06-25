@@ -6549,7 +6549,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-opaque {\n    background-color: rgba(0,0,0,0);\n}\n\nbody {\n    /* background: url('https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'); */\n}\n\nmain {\n    margin-top: 64px !important;\n}", ""]);
+exports.push([module.i, ".bg-opaque {\r\n    background-color: rgba(0,0,0,0);\r\n}\r\n\r\nbody {\r\n    /* background: url('https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'); */\r\n}\r\n\r\nmain {\r\n    margin-top: 64px !important;\r\n}", ""]);
 
 // exports
 
@@ -67185,9 +67185,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -67201,45 +67201,119 @@ function (_Component) {
   _inherits(MFinancial, _Component);
 
   function MFinancial(props) {
+    var _this;
+
     _classCallCheck(this, MFinancial);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MFinancial).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MFinancial).call(this, props));
+    _this.doCalculations = _this.doCalculations.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(MFinancial, [{
+    key: "doCalculations",
+    value: function doCalculations(ev) {
+      var amountOrder = document.getElementById("amountOrder").value;
+      var noOfEmployee = amountOrder * 0.01;
+
+      if (noOfEmployee < 1) {
+        noOfEmployee = 1;
+      }
+
+      ev.preventDefault();
+      document.getElementById('Package name').innerHTML = (amountOrder * 1.1).toFixed(2);
+      document.getElementById('Equipment name').innerHTML = (amountOrder * 0.4).toFixed(2);
+      document.getElementById('Material name').innerHTML = (amountOrder * 0.35).toFixed(2);
+      document.getElementById('Employee hours').innerHTML = (amountOrder * 0.6).toFixed(2);
+      document.getElementById('Employees').innerHTML = noOfEmployee;
+    }
+  }, {
     key: "render",
     value: function render() {
+      var tdStyle = {
+        verticalAlign: 'middle',
+        textAlign: 'center'
+      };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        action: "/calculation_page.php"
+        name: "calculator"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "columns"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "column has-addons is-one-third"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "field has-addons"
+        className: "field has-addons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "control"
+        className: "control"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        "class": "input",
+        id: "amountOrder",
+        className: "input",
         type: "text",
-        placeholder: "Number of KGs"
+        placeholder: "Number of products"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "control"
+        className: "control"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        "class": "button is-info"
-      }, "Search")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "button is-info",
+        onClick: this.doCalculations
+      }, "Calculate")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "column is-one-third has-text-centered has-text-weight-bold is-size-4-desktop"
       }, "Estimation of Order (advice)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "column is-one-third"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        className: "table is-bordered is-fullwidth"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estimated Requirement"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Total Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estimated Time of Delivery"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Number of package needed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        rowSpan: "5"
+        className: "table is-bordered is-fullwidth has-text-centered"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("col", {
+        width: "20%"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("col", {
+        width: "20%"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("col", {
+        width: "20%"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("col", {
+        width: "20%"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("col", {
+        width: "20%"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        align: "center"
+      }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        align: "center"
+      }, "Estimated Quantity"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        align: "center"
+      }, "Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        align: "center"
+      }, "Total Cost"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        align: "center"
+      }, "Estimated Time of Completing order"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Package name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        id: "Package name",
+        style: tdStyle
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-        rowSpan: "5"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Number of total equipment needed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Other material"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Number of hours"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Number of employees"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null))))));
+        style: tdStyle
+      }, "RM10,000"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        rowSpan: "6",
+        style: tdStyle
+      }, "RM100,000"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        rowSpan: "6",
+        style: tdStyle
+      }, "Tuesday, 26-June-2019")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Equipment name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        id: "Equipment name",
+        style: tdStyle
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        style: tdStyle
+      }, "RM20,000")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Material name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        id: "Material name",
+        style: tdStyle
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        style: tdStyle
+      }, "RM30,000")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Employee Hours"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        id: "Employee hours",
+        style: tdStyle
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        style: tdStyle
+      }, "RM30,000")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Employees"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        id: "Employees",
+        style: tdStyle
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        style: tdStyle
+      }, "RM30,000"))))));
     }
   }]);
 
