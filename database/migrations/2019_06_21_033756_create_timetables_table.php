@@ -17,9 +17,9 @@ class CreateTimetablesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('employee_id');
             $table->foreign('employee_id')->references('id')->on('employees');
-            $table->date('date');
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->string('date');
+            $table->string('start_time');
+            $table->string('end_time');
             $table->timestamps();
         });
     }

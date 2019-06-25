@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Timetable extends Model
 {
     protected $fillable = ['employee_id', 'date', 'start_time', 'end_time'];
+
+    public function employee(){
+        return $this->belongsTo('App\Employee');
+    }
 }

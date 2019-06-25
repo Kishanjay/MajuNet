@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 class MFootnote extends Component {
+
     render() { 
         return ( 
-            <footer className="footer">
+            <footer className="footer bg-opaque">
             <div className="content has-text-centered">
                 <p>
                 <strong>MajuNet</strong> by <a href="http://www.unimas.my/">UNIMAS</a> and <a href="https://www.vu.nl/en">VU</a>.
