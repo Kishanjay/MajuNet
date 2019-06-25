@@ -6549,7 +6549,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* Cool loading animation (wavyyy says the duck): https://codepen.io/terotic/pen/pBolv */\n.bg-opaque {\n    background-color: rgba(0,0,0,0);\n}\n\n\nmain {\n    margin-top: 64px !important;\n}\n\n.table-wrapper {\n    padding: 12px;\n    background-color: white;\n    margin-bottom: 20px;\n    border-radius: 8px;\n}\n\nbody {\nbackground: -webkit-gradient(linear,left top, right top,from(#f6ffb7),color-stop(50%, #96efff), to(#7cff75));\nbackground: linear-gradient(90deg,#f6ffb7 0%,#96efff 50%, #7cff75 100%);\n  background-size: 1000%;\n  -webkit-animation: background 120s linear alternate infinite;\n          animation: background 120s linear alternate infinite;\n}\n\n@-webkit-keyframes background {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 100% 0;\n  }\n}\n\n@keyframes background {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 100% 0;\n  }\n}\n\n\n", ""]);
+exports.push([module.i, "/* Cool loading animation (wavyyy says the duck): https://codepen.io/terotic/pen/pBolv */\n.bg-opaque {\n    background-color: rgba(0,0,0,0);\n}\n\n\nmain {\n    margin-top: 64px !important;\n}\n\n.table-wrapper {\n    padding: 12px;\n    background-color: white;\n    margin-bottom: 20px;\n    border-radius: 8px;\n}\n\nbody {\nbackground: -webkit-gradient(linear,left top, right top,from(#f6ffb7),color-stop(50%, #96efff), to(#7cff75));\nbackground: linear-gradient(90deg,#f6ffb7 0%,#96efff 50%, #7cff75 100%);\n  background-size: 1000%;\n  -webkit-animation: background 120s linear alternate infinite;\n          animation: background 120s linear alternate infinite;\n}\n\n@-webkit-keyframes background {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 100% 0;\n  }\n}\n\n@keyframes background {\n  from {\n    background-position: 0 0;\n  }\n  to {\n    background-position: 100% 0;\n  }\n}\n\n#app {\n  min-height: 100vh;\n}\n\n", ""]);
 
 // exports
 
@@ -66475,7 +66475,7 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MHeader__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MHeader__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/",
         component: _pages_Mhome_js__WEBPACK_IMPORTED_MODULE_10__["default"]
@@ -66499,7 +66499,7 @@ function (_Component) {
         exact: true,
         path: "/Login",
         component: _pages_MLogin_js__WEBPACK_IMPORTED_MODULE_9__["default"]
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MFootnote_js__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MFootnote_js__WEBPACK_IMPORTED_MODULE_4__["default"], null));
     }
   }]);
 
@@ -68065,9 +68065,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
+var style = {
+  backgroundColor: 'white'
+};
 
 var MHeader = function MHeader() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to majunet");
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "hero is-dark"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "hero-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "title"
+  }, "MajuNet"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "subtitle"
+  }, "Explore, Expand, Experience local food of Sarawak")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "section"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "title"
+  }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "subtitle"
+  }, "The main purpose of the system is supporting the Women's Institute (WI) in repackaging local products from Sarawak. The WI is the central stakeholder that employs women from  Kampung Pinggan Jaya and Muhibbah. They will repackage and rebrand the local product popiah simpul, that will be exported by a third party, AlphaBees, to Singapore. The system supports the WI in scheduling women and keep track of the financials from requested orders."))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MHeader);

@@ -19,7 +19,6 @@ class App extends Component {
   render () {
     return (
       <BrowserRouter>
-        <div>
           <MHeader />
           <Switch>
             <Route exact path='/' component={MHome} />
@@ -30,7 +29,6 @@ class App extends Component {
             <Route exact path='/Login' component={MLogin} />
           </Switch>
           <MFootnote/>
-        </div>
       </BrowserRouter>
     )
   }
