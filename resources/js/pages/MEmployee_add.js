@@ -66,7 +66,7 @@ class MEmployee_add extends Component {
 
     render() {
         return (
-            <div className="container">
+            <main className="container">
                 <h1 className="title">Register employee</h1>
 
                 <MMessage response={this.state.response} onSuccess="Employee added successfully" onError="Couldn't add employee" />
@@ -118,7 +118,7 @@ class MEmployee_add extends Component {
                     className="button is-primary"
                     onClick={this.handleSubmit}
                 ></MButton>
-            </div>
+            </main>
         );
     }
 }

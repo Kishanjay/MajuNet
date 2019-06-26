@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MButton from '../components/MButton';
 
 class MFinancial extends Component {
     constructor(props) {
@@ -31,27 +32,22 @@ class MFinancial extends Component {
         };
         
         return (
-            <div className="container">
-                <form name="calculator">
-                    <div className="columns">
-                        <div className="column has-addons is-one-third">
-                            <div className="field has-addons">
-                                <div className="control">
-                                    <input id="amountOrder" className="input" type="text" placeholder="Number of products"/>
-                                </div>
-                                <div className="control">
-                                    <button className="button is-info" onClick={this.doCalculations}>Calculate</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="column is-one-third has-text-centered has-text-weight-bold is-size-4-desktop">Estimation of Order (advice)
-                        </div>
-                        <div className="column is-one-third">
+            <main className="container">
+
+
+                <nav className="level">
+                    <div className="level-left">
+                        <div className="level-item">
+                            <h1 className="title">Estimation of Order (advice)</h1>
                         </div>
                     </div>
-                </form>
+                    <div className="level-right">
+                    <input id="amountOrder" className="input" type="text" placeholder="Number of products"/>
+                        <MButton className="button is-info" buttonText="Calculate" onClick={this.doCalculations}></MButton>
+                    </div>
+                </nav>
 
-                <div>
+                <div class="table-wrapper">
                     <table className="table is-bordered is-fullwidth has-text-centered">
                         <col width="20%"></col>
                         <col width="20%"></col>
@@ -99,7 +95,7 @@ class MFinancial extends Component {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </main>
         );
     }
 }

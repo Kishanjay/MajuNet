@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MButton from './MButton.js';
+import MButton from '../components/MButton.js';
 
 class MLogin extends Component {
     state = {  }

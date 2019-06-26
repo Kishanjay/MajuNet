@@ -37,28 +37,30 @@ class MEmployee extends Component {
                         </Link>
                     </div>
                 </nav>
-                <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <td>Nama Penuh</td>
-                            <td># Telefon</td>
-                            <td>Alamat</td>
-                            <td>City</td>
-                        </tr>
-                    </thead>
+                <div className="table-wrapper">
+                    <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <td>Nama Penuh</td>
+                                <td># Telefon</td>
+                                <td>Alamat</td>
+                                <td>City</td>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        {this.state.employees.map(employee =>
-                            <tr key={employee.id}>
-                                <td>{employee.id}</td>
-                                <td>{employee.first_name}</td>
-                                <td>{employee.phone}</td>
-                                <td>{employee.address}</td>
-                                <td>{employee.city}</td>
-                            </tr>)}
-                    </tbody>
-                </table>
+                        <tbody>
+                            {this.state.employees.map(employee =>
+                                <tr key={employee.id}>
+                                    <td>{employee.id}</td>
+                                    <td>{employee.first_name}</td>
+                                    <td>{employee.phone}</td>
+                                    <td>{employee.address}</td>
+                                    <td>{employee.city}</td>
+                                </tr>)}
+                        </tbody>
+                    </table>
+                </div>
             </main>
         );
     }
