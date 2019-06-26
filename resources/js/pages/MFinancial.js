@@ -10,17 +10,17 @@ class MFinancial extends Component {
 
     doCalculations(ev) {
         var amountOrder = document.getElementById("amountOrder").value;
-        var noOfEmployee = amountOrder * 0.01;
+        var noOfEmployee = Math.round((amountOrder * 0.02).toFixed(0));
         
         if(noOfEmployee < 1){
             noOfEmployee = 1;
         }
 
         ev.preventDefault();
-        document.getElementById('Package name').innerHTML = (amountOrder * 1.1).toFixed(2);
+        document.getElementById('Package name').innerHTML = Math.round((amountOrder * 1.1).toFixed(2));
         document.getElementById('Equipment name').innerHTML = (amountOrder * 0.4).toFixed(2);
-        document.getElementById('Material name').innerHTML = (amountOrder * 0.35).toFixed(2);
-        document.getElementById('Employee hours').innerHTML = (amountOrder * 0.6).toFixed(2);
+        document.getElementById('Material name').innerHTML = Math.round((amountOrder * 0.35).toFixed(2));
+        document.getElementById('Employee hours').innerHTML = Math.round((amountOrder * 0.6).toFixed(2));
         document.getElementById('Employees').innerHTML = noOfEmployee;
         
     }
