@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 
 import EmployeeService from '../services/Employee';
 
@@ -37,11 +36,13 @@ class MEmpDetails extends Component {
 
     render() {
         return (
+            
             <main className="container">
                 <div className="card">
                     <div className="card-image">
                     </div>
                     <div className="card-content">
+                    <div className="media"><div className="media-left"><h4><b>Butiran Pekerja</b></h4></div></div>
                         <div className="media">
                             <div className="media-left">
                                 <figure className="image is-48x48">
@@ -58,10 +59,10 @@ class MEmpDetails extends Component {
                             <table className="table is-striped">
                                 <thead>
                                     <tr>
-                                        <th>Date</th>
-                                        <th>Start time</th>
-                                        <th>End time</th>
-                                        <th>Hours</th>
+                                        <th>Tarikh bekerja</th>
+                                        <th>Masa mula kerja</th>
+                                        <th>Masa turun kerja</th>
+                                        <th>Jangka masa (Jam)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
