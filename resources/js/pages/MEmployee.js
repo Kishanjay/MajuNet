@@ -9,15 +9,17 @@ class MEmployee extends Component {
         super(props);
 
         this.state = {
-            employees: []
+            employees: [],
+            isOpen:false,
         }
     }
 
     componentDidMount() {
         EmployeeService.get().then(response => {
-            console.log(response);
+            //console.log(response);
             this.setState({
-                employees: response.data
+                employees: response.data,
+                isOpen:false
             });
         });
     }
@@ -53,7 +55,15 @@ class MEmployee extends Component {
                             {this.state.employees.map(employee =>
                                 <tr key={employee.id}>
                                     <td>{employee.id}</td>
-                                    <td>{employee.first_name}</td>
+                                     <td>
+                                        <Link to={{
+                                            pathname: '/Employee_details',
+                                            state: {
+                                                empId: employee.id
+                                            }
+                                            }}>{employee.first_name}
+                                        </Link>
+                                    </td>
                                     <td>{employee.phone}</td>
                                     <td>{employee.address}</td>
                                     <td>{employee.city}</td>
@@ -62,6 +72,8 @@ class MEmployee extends Component {
                     </table>
                 </div>
             </main>
+
+
         );
     }
 }
