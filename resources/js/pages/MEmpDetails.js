@@ -62,7 +62,7 @@ class MEmpDetails extends Component {
                                         <th>Tarikh bekerja</th>
                                         <th>Masa mula kerja</th>
                                         <th>Masa turun kerja</th>
-                                        <th>Jangka masa (Jam)</th>
+                                        <th>Jangka masa (jam)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
