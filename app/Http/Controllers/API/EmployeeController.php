@@ -58,7 +58,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        $employee = Employee::find($id);
+        $employee = Employee::with('timetables')->find($id);
         return $employee;
     }
 

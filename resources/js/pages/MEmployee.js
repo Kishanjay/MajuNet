@@ -56,13 +56,7 @@ class MEmployee extends Component {
                                 <tr key={employee.id}>
                                     <td>{employee.id}</td>
                                      <td>
-                                        <Link to={{
-                                            pathname: '/Employee_details',
-                                            state: {
-                                                empId: employee.id
-                                            }
-                                            }}>{employee.first_name}
-                                        </Link>
+                                        <Link to={`/employee_details/${employee.id}`}>{employee.first_name}</Link>
                                     </td>
                                     <td>{employee.phone}</td>
                                     <td>{employee.address}</td>

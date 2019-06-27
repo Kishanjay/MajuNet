@@ -29,9 +29,8 @@ class App extends Component {
             <Route exact path='/FinancialOverview' component={MFinancial} />
             <Route exact path='/Employee' component={MEmployee} />
             <Route exact path='/Employee_add' component={MEmployee_add} />
-            {/* <Route exact path='/Employee_detail/:id' component={MEmployee_detail} /> */}
             <Route exact path='/Login' component={MLogin} />
-            <Route exact path='/Employee_details' component={MEmpDetails} />
+            <Route path='/Employee_details/:id' component={MEmpDetails} />
           </Switch>
           <MFootnote/>
         </div>
