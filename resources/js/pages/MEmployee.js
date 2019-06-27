@@ -52,12 +52,16 @@ class MEmployee extends Component {
                         <tbody>
                             {this.state.employees.map(employee =>
                                 <tr key={employee.id}>
-                                    <td>{employee.id}</td>
+                                    <td>
+                                        <Link to={`/employee_detail/${employee.id}`}>{employee.id}</Link>
+                                    </td>
                                     <td>{employee.first_name}</td>
                                     <td>{employee.phone}</td>
                                     <td>{employee.address}</td>
                                     <td>{employee.city}</td>
-                                </tr>)}
+                                </tr>
+
+                            )}
                         </tbody>
                     </table>
                 </div>

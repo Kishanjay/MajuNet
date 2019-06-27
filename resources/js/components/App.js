@@ -9,6 +9,7 @@ import MFinancial from '../pages/MFinancial'
 import MTimetable from '../pages/MTimetable.js'
 import MEmployee from '../pages/MEmployee.js'
 import MEmployee_add from '../pages/MEmployee_add.js'
+import MEmployee_detail from '../pages/MEmployee_detail.js'
 import MHome from '../pages/Mhome.js'
 import MLogin from '../pages/MLogin.js'
 import 'bulma/css/bulma.css'
@@ -27,6 +28,7 @@ class App extends Component {
             <Route exact path='/FinancialOverview' component={MFinancial} />
             <Route exact path='/Employee' component={MEmployee} />
             <Route exact path='/Employee_add' component={MEmployee_add} />
+            <Route exact path='/Employee_detail/:id' component={MEmployee_detail} />
             <Route exact path='/Login' component={MLogin} />
           </Switch>
           <MFootnote/>
