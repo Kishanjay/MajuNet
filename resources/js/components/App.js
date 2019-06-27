@@ -11,6 +11,7 @@ import MEmployee from '../pages/MEmployee.js'
 import MEmployee_add from '../pages/MEmployee_add.js'
 import MHome from '../pages/Mhome.js'
 import MLogin from '../pages/MLogin.js'
+import MEmpDetails from '../pages/MEmpDetails.js'
 import 'bulma/css/bulma.css'
 import 'bulma-calendar/dist/css/bulma-calendar.min.css'
 import './app.css';
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path='/Employee' component={MEmployee} />
             <Route exact path='/Employee_add' component={MEmployee_add} />
             <Route exact path='/Login' component={MLogin} />
+            <Route exact path='/Employee_details' component={MEmpDetails} />
           </Switch>
           <MFootnote/>
         </div>
