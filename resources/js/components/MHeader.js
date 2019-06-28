@@ -25,9 +25,13 @@ const MHeader = () => (
       <div id="navbarExampleTransparentExample" className="navbar-menu">
         <div className="navbar-start">
 
+        <Link to="/Dashboard" className="navbar-item">
+            Papan Keterangan
+          </Link> {/* Dashboard */}
+          
           <Link to="/Timetable" className="navbar-item">
             Jadual Waktu
-      </Link> {/* Timetable */}
+          </Link> {/* Timetable */}
 
           <Link to="/FinancialOverview" className="navbar-item">
             Keterangan kewangan

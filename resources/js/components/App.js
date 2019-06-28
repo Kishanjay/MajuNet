@@ -9,10 +9,10 @@ import MFinancial from '../pages/MFinancial'
 import MTimetable from '../pages/MTimetable.js'
 import MEmployee from '../pages/MEmployee.js'
 import MEmployee_add from '../pages/MEmployee_add.js'
-import MEmployee_detail from '../pages/MEmployee_detail.js'
 import MHome from '../pages/Mhome.js'
 import MLogin from '../pages/MLogin.js'
 import MEmpDetails from '../pages/MEmpDetails.js'
+import MDashboard from '../pages/MDashboard.js'
 import 'bulma/css/bulma.css'
 import 'bulma-calendar/dist/css/bulma-calendar.min.css'
 import './app.css';
@@ -31,6 +31,7 @@ class App extends Component {
             <Route exact path='/Employee_add' component={MEmployee_add} />
             <Route exact path='/Login' component={MLogin} />
             <Route path='/Employee_details/:id' component={MEmpDetails} />
+            <Route exact path='/Dashboard' component={MDashboard} />
           </Switch>
           <MFootnote/>
         </div>
