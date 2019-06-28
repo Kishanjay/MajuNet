@@ -127,12 +127,12 @@ class MTable extends Component {
         }
         return (
             <main className="container">
-                <h1 className="title">Senarai Pekerja</h1>
+                <h1 className="title">Jadual Waktu Bekerja</h1> {/* Timetable */}
 
                 <div className="table-wrapper">
                     <div className="level">
                         <div className="level-left">
-                            <h2 className="title is-5">Today</h2>
+                            <h2 className="title is-5">Hari Ini</h2> {/* Today */}
                         </div>
                         <div className="level-left">
                             <h3 className="subtitle is-6">
@@ -171,7 +171,7 @@ class MTable extends Component {
                 <div className="table-wrapper">
                     <div className="level">
                         <div className="level-left">
-                            <h2 className="title is-5">Tomorrow</h2>
+                            <h2 className="title is-5">Esok</h2> {/* Tomorrow */}
                         </div>
                         <div className="level-right">
                             <h3 className="subtitle is-6">

@@ -30,12 +30,12 @@ class MEmployee extends Component {
                 <nav className="level">
                     <div className="level-left">
                         <div className="level-item">
-                            <h1 className="title">Senarai Pekerja</h1>
+                            <h1 className="title">Senarai Pekerja</h1> {/* Employee List */}
                         </div>
                     </div>
                     <div className="level-right">
                         <Link to="/employee_add">
-                            <MButton className="button is-warning" buttonText="Add Employee"></MButton>
+                            <MButton className="button is-warning" buttonText="Tambah Pekerja"></MButton> {/* Add Employee */}
                         </Link>
                     </div>
                 </nav>

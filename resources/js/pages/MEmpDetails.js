@@ -42,7 +42,7 @@ class MEmpDetails extends Component {
                     <div className="card-image">
                     </div>
                     <div className="card-content">
-                    <div className="media"><div className="media-left"><h4><b>Butiran Pekerja</b></h4></div></div>
+                    <div className="media"><div className="media-left"><h4><b>Butiran Pekerja</b></h4></div></div> {/* Worker's Details */}
                         <div className="media">
                             <div className="media-left">
                                 <figure className="image is-48x48">
@@ -59,10 +59,10 @@ class MEmpDetails extends Component {
                             <table className="table is-striped">
                                 <thead>
                                     <tr>
-                                        <th>Tarikh bekerja</th>
-                                        <th>Masa mula kerja</th>
-                                        <th>Masa turun kerja</th>
-                                        <th>Jangka masa (jam)</th>
+                                        <th>Tarikh bekerja</th> {/* Working Date */}
+                                        <th>Masa mula kerja</th> {/* Working Start Time */}
+                                        <th>Masa turun kerja</th> {/* Working End Time */}
+                                        <th>Jangka masa (jam)</th> {/* Total Working Time */}
                                     </tr>
                                 </thead>
                                 <tbody>

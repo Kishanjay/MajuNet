@@ -26,15 +26,17 @@ const MHeader = () => (
         <div className="navbar-start">
 
           <Link to="/Timetable" className="navbar-item">
-            Timetable
-      </Link>
+            Jadual Waktu
+      </Link> {/* Timetable */}
 
           <Link to="/FinancialOverview" className="navbar-item">
-            Financial Overview
+            Keterangan kewangan
+            {/* Financial Overview */}
       </Link>
 
           <Link to="/employee" className="navbar-item">
-            Employees
+            Pekerja
+            {/* Employee */}
       </Link>
         </div>
       </div>

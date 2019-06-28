@@ -38,12 +38,12 @@ class MFinancial extends Component {
                 <nav className="level">
                     <div className="level-left">
                         <div className="level-item">
-                            <h1 className="title">Estimation of Order (advice)</h1>
+                            <h1 className="title">Anggaran Pesanan Produk(nasihat)</h1> {/*Estimation of Order (advice) */}
                         </div>
                     </div>
                     <div className="level-right">
-                    <input id="amountOrder" className="input" type="text" placeholder="Number of products"/>
-                        <MButton className="button is-info" buttonText="Calculate" onClick={this.doCalculations}></MButton>
+                    <input id="amountOrder" className="input" type="text" placeholder="Jumlah Produk"/>{/* Number of products */}
+                        <MButton className="button is-info" buttonText="Kira" onClick={this.doCalculations}></MButton> {/**Kira = Calculate */}
                     </div>
                 </nav>
 
@@ -56,39 +56,39 @@ class MFinancial extends Component {
                         <col width="20%"></col>
                         <thead>
                             <tr>
-                                <th align="center">Name</th>
-                                <th align="center">Estimated Quantity</th>
-                                <th align="center">Cost</th>
-                                <th align="center">Total Cost</th>
-                                <th align="center">Estimated Time of Completing order</th>
+                                <th align="center">Nama</th> {/* Name */}
+                                <th align="center">Anggaran Kuantiti</th> {/*Estimated Quantity */}
+                                <th align="center">Kos</th> {/*Cost */}
+                                <th align="center">Jumlah Kos</th> {/* Total Cost */}
+                                <th align="center">Anggaran Tarikh Siap Pesanan</th> {/* Estimated Time of Completing order */}
                             </tr>   
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td>Package name</td>
+                                <td>Nama Pakej</td>{/* Package name */}
                                 <td id="Package name" style={tdStyle}></td>
                                 <td style={tdStyle}>RM10,000</td>
                                 <td rowSpan="6" style={tdStyle}>RM100,000</td>
                                 <td rowSpan="6" style={tdStyle}>Tuesday, 26-June-2019</td>
                             </tr>
                             <tr>
-                                <td>Equipment name</td>
+                                <td>Nama Peralatan</td>{/* Equipment name */}
                                 <td id ="Equipment name" style={tdStyle}></td>
                                 <td style={tdStyle}>RM20,000</td>
                             </tr>
                             <tr>
-                                <td>Material name</td>
+                                <td>Bahan</td>{/* Material name */}
                                 <td id ="Material name" style={tdStyle}></td>
                                 <td style={tdStyle}>RM30,000</td>
                             </tr>
                             <tr>
-                                <td>Employee Hours</td>
+                                <td>Jangka Masa Diperlukan</td> {/* Employee Hours (Total working hours needed) */}
                                 <td id ="Employee hours" style={tdStyle}></td>
                                 <td style={tdStyle}>RM30,000</td>
                             </tr>
                             <tr>
-                                <td>Employees</td>
+                                <td>Jumlah Pekerja Diperlukan</td>{/* Employees (Number of employees needed) */}
                                 <td id ="Employees" style={tdStyle}></td>
                                 <td style={tdStyle}>RM30,000</td>
                             </tr>
