@@ -63,9 +63,6 @@ class MDashboard extends Component {
                         <article class="tile is-child notification is-info">
                                 <p class="title">Jangka Masa Kerja Hari Ini</p> {/**Total working hour for today */}
                                 <p class="subtitle">{this.state.numberOfWorkingHoursToday}</p>
-                        <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/640x480.png"/>
-                        </figure>
                         </article>
                     </div>
                     </div>
